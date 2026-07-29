@@ -3,311 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>澄明之所</title>
+    <title>協會</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Helvetica Neue', 'PingFang TC', 'Noto Sans TC', sans-serif;
+            font-family: 'Helvetica Neue', 'PingFang TC', 'Noto Sans TC', 'Songti SC', serif;
             font-weight: 300;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
         }
 
         body {
             background-color: #d8e8e0;
             color: #3d5e4e;
-            line-height: 1.7;
-        }
-
-        /* header */
-        header {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(140, 185, 165, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-inner {
-            max-width: 1100px;
-            margin: 0 auto;
+            min-height: 100vh;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 40px;
+            flex-direction: column;
         }
 
-        .logo {
-            font-size: 1.15rem;
-            font-weight: 320;
-            color: #4a6359;
-            letter-spacing: 1.2px;
-            padding: 20px 0;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: #4a6359;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 320;
-            letter-spacing: 0.8px;
-            padding: 20px 8px;
-            position: relative;
-            transition: color 0.6s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 16px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 1px;
-            background: rgba(110, 165, 142, 0.35);
-            transition: width 0.7s cubic-bezier(0.33, 0.08, 0.27, 0.94);
-        }
-
-        .nav-links a:hover {
-            color: #2d4a3e;
-        }
-
-        .nav-links a:hover::after {
-            width: 55%;
-        }
-
-        /* 宣誓言 */
-        .site-manifesto {
-            width: 100%;
-            padding: 110px 20px 90px;
+        /* ===== 第一塊：機構名稱 ===== */
+        .block-one {
             text-align: center;
+            padding: 100px 20px 40px;
         }
 
-        .manifesto-inner {
-            max-width: 620px;
-            margin: 0 auto;
-        }
-
-        .manifesto-text {
-            font-size: 1.8rem;
-            font-weight: 300;
-            letter-spacing: 1.8px;
+        .org-name {
+            font-size: 1.6rem;
+            font-weight: 350;
+            letter-spacing: 2px;
             color: #3d5e4e;
-            margin-bottom: 22px;
-            line-height: 1.6;
         }
 
-        .manifesto-sub {
-            font-size: 0.95rem;
+        /* ===== 第二塊：宣言 ===== */
+        .block-two {
+            text-align: center;
+            padding: 20px 20px 60px;
+        }
+
+        .manifesto {
+            font-size: 1.2rem;
             font-weight: 300;
+            letter-spacing: 1.5px;
             color: #5a7a68;
-            letter-spacing: 1px;
-            line-height: 2;
-            margin-bottom: 35px;
+            line-height: 1.8;
         }
 
-        .manifesto-line {
-            width: 45px;
+        .divider {
+            width: 40px;
             height: 1px;
             background: rgba(140, 185, 165, 0.5);
-            margin: 0 auto;
+            margin: 30px auto 0;
         }
 
-        /* 主要內容 */
-        .main-content {
+        /* ===== 第三塊：三大欄 ===== */
+        .block-three {
+            display: flex;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 40px 70px;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 320;
-            letter-spacing: 1px;
-            color: #3d5e4e;
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            padding: 20px 40px 80px;
             gap: 30px;
+            flex: 1;
         }
 
-        .card {
-            background: rgba(220, 235, 228, 0.6);
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
+        .portal-card {
+            flex: 1;
+            background: rgba(220, 235, 228, 0.5);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
             border: 1px solid rgba(140, 185, 165, 0.25);
-            padding: 40px 35px;
-            transition: all 0.5s ease;
-        }
-
-        .card:hover {
-            border-color: rgba(110, 165, 142, 0.4);
-            background: rgba(210, 228, 220, 0.75);
-        }
-
-        .card h3 {
-            font-size: 1.15rem;
-            font-weight: 350;
-            margin-bottom: 14px;
-            color: #3d5e4e;
-            letter-spacing: 0.8px;
-        }
-
-        .card p {
-            font-size: 0.9rem;
-            color: #5a7a68;
-            line-height: 1.9;
-            font-weight: 300;
-        }
-
-        .btn {
-            display: inline-block;
-            border: 1px solid rgba(140, 185, 165, 0.5);
-            color: #3d5e4e;
-            background: rgba(220, 235, 228, 0.6);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            padding: 11px 28px;
-            font-size: 0.85rem;
-            font-weight: 340;
-            letter-spacing: 0.8px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.5s ease;
-            margin-top: 18px;
-        }
-
-        .btn:hover {
-            border-color: rgba(110, 165, 142, 0.55);
-            color: #2d4a3e;
-            background: rgba(200, 225, 215, 0.75);
-        }
-
-        /* 頁尾 */
-        footer {
-            background: rgba(185, 210, 198, 0.7);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            color: #3d5e4e;
             padding: 50px 30px;
             text-align: center;
-            border-top: 1px solid rgba(140, 185, 165, 0.3);
+            text-decoration: none;
+            color: #3d5e4e;
+            transition: all 0.6s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 250px;
         }
 
-        footer p {
-            font-size: 0.85rem;
-            letter-spacing: 0.8px;
+        .portal-card:hover {
+            background: rgba(200, 225, 215, 0.7);
+            border-color: rgba(110, 165, 142, 0.45);
+        }
+
+        .portal-card h2 {
+            font-size: 1.3rem;
+            font-weight: 340;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .portal-card .arrow {
+            font-size: 1.5rem;
+            font-weight: 200;
+            color: rgba(140, 185, 165, 0.6);
+            margin-top: 15px;
+            transition: all 0.6s ease;
+        }
+
+        .portal-card:hover .arrow {
+            color: rgba(100, 155, 132, 0.8);
+            transform: translateY(4px);
+        }
+
+        .portal-card .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: #5a7a68;
+            border: 1px solid rgba(140, 185, 165, 0.4);
+            padding: 4px 14px;
+            margin-top: 10px;
+        }
+
+        /* ===== 第四塊：版權 ===== */
+        .block-four {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(185, 210, 198, 0.5);
+            border-top: 1px solid rgba(140, 185, 165, 0.2);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: #5a7a68;
             font-weight: 300;
         }
 
-        footer a {
-            color: #4a7a65;
-            text-decoration: none;
-            transition: color 0.4s ease;
-        }
-
-        footer a:hover {
-            color: #2d4a3e;
-        }
-
-        /* 響應式 */
+        /* ===== 響應式 ===== */
         @media (max-width: 768px) {
-            .header-inner {
+            .block-three {
                 flex-direction: column;
-                padding: 10px 20px;
+                padding: 20px 20px 60px;
+                gap: 20px;
             }
-            .nav-links {
-                gap: 5px;
-                flex-wrap: wrap;
-                justify-content: center;
+            .portal-card {
+                min-height: 180px;
+                padding: 35px 25px;
             }
-            .nav-links a {
-                padding: 12px 10px;
-                font-size: 0.9rem;
+            .block-one {
+                padding: 60px 20px 25px;
             }
-            .manifesto-text {
-                font-size: 1.5rem;
+            .org-name {
+                font-size: 1.3rem;
             }
-            .manifesto-sub {
-                font-size: 0.9rem;
-            }
-            .site-manifesto {
-                padding: 70px 20px 60px;
+            .manifesto {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-inner">
-            <div class="logo">澄明之所</div>
-            <ul class="nav-links">
-                <li><a href="#">首頁</a></li>
-                <li><a href="#">關於</a></li>
-                <li><a href="#">文章</a></li>
-                <li><a href="#">聯繫</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <section class="site-manifesto">
-        <div class="manifesto-inner">
-            <p class="manifesto-text">
-                此處非喧囂之地，乃澄明之所。
-            </p>
-            <p class="manifesto-sub">
-                我們以靜默的設計，回應世界的紛繁。<br>
-                每一處留白，都是為了讓您的靈魂得以安然停駐。
-            </p>
-            <div class="manifesto-line"></div>
-        </div>
+    <!-- 第一塊：機構名稱 -->
+    <section class="block-one">
+        <h1 class="org-name">協會</h1>
     </section>
 
-    <main class="main-content">
-        <h2 class="section-title">靜觀 · 內在秩序</h2>
-        <div class="card-grid">
+    <!-- 第二塊：宣言 -->
+    <section class="block-two">
+        <p class="manifesto">此處非喧囂之地，乃澄明之所。</p>
+        <div class="divider"></div>
+    </section>
 
-            <div class="card">
-                <h3>純粹</h3>
-                <p>褪去多餘的裝飾，回到事物本來的樣子。設計的盡頭，是看不見設計。</p>
-                <a href="#" class="btn">了解更多</a>
-            </div>
+    <!-- 第三塊：三大入口 -->
+    <section class="block-three">
+        
+        <a href="left.html" class="portal-card">
+            <h2>左</h2>
+            <span class="arrow">→</span>
+        </a>
 
-            <div class="card">
-                <h3>留白</h3>
-                <p>空白不是缺失，是呼吸的空間。在靜默中，思緒得以自由流動。</p>
-                <a href="#" class="btn">了解更多</a>
-            </div>
+        <a href="middle.html" class="portal-card">
+            <h2>中</h2>
+            <span class="badge">附 · 原著下載</span>
+            <span class="arrow">→</span>
+        </a>
 
-            <div class="card">
-                <h3>流動</h3>
-                <p>如溪水漫過石頭，不爭不搶。自然的節奏，是最高的秩序。</p>
-                <a href="#" class="btn">了解更多</a>
-            </div>
+        <a href="right.html" class="portal-card">
+            <h2>右</h2>
+            <span class="arrow">→</span>
+        </a>
 
-        </div>
-    </main>
+    </section>
 
-    <footer>
-        <p>© 2025 澄明之所 · 靜默中見萬物</p>
-        <p style="margin-top: 8px;">
-            <a href="#">關於我們</a> &nbsp;·&nbsp; 
-            <a href="#">聯絡方式</a>
-        </p>
+    <!-- 第四塊：版權 -->
+    <footer class="block-four">
+        <p class="copyright">© 2025 協會 · 版權所有</p>
     </footer>
 
 </body>
