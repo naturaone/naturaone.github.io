@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澄明之所</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', 'PingFang TC', 'Noto Sans TC', sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        body {
+            background-color: #d8e8e0;
+            color: #3d5e4e;
+            line-height: 1.7;
+        }
+
+        /* header */
+        header {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(140, 185, 165, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: 320;
+            color: #4a6359;
+            letter-spacing: 1.2px;
+            padding: 20px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #4a6359;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 320;
+            letter-spacing: 0.8px;
+            padding: 20px 8px;
+            position: relative;
+            transition: color 0.6s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: rgba(110, 165, 142, 0.35);
+            transition: width 0.7s cubic-bezier(0.33, 0.08, 0.27, 0.94);
+        }
+
+        .nav-links a:hover {
+            color: #2d4a3e;
+        }
+
+        .nav-links a:hover::after {
+            width: 55%;
+        }
+
+        /* 宣誓言 */
+        .site-manifesto {
+            width: 100%;
+            padding: 110px 20px 90px;
+            text-align: center;
+        }
+
+        .manifesto-inner {
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .manifesto-text {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1.8px;
+            color: #3d5e4e;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
+
+        .manifesto-sub {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #5a7a68;
+            letter-spacing: 1px;
+            line-height: 2;
+            margin-bottom: 35px;
+        }
+
+        .manifesto-line {
+            width: 45px;
+            height: 1px;
+            background: rgba(140, 185, 165, 0.5);
+            margin: 0 auto;
+        }
+
+        /* 主要內容 */
+        .main-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px 70px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 320;
+            letter-spacing: 1px;
+            color: #3d5e4e;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(220, 235, 228, 0.6);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            border: 1px solid rgba(140, 185, 165, 0.25);
+            padding: 40px 35px;
+            transition: all 0.5s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(110, 165, 142, 0.4);
+            background: rgba(210, 228, 220, 0.75);
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 350;
+            margin-bottom: 14px;
+            color: #3d5e4e;
+            letter-spacing: 0.8px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #5a7a68;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            border: 1px solid rgba(140, 185, 165, 0.5);
+            color: #3d5e4e;
+            background: rgba(220, 235, 228, 0.6);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            padding: 11px 28px;
+            font-size: 0.85rem;
+            font-weight: 340;
+            letter-spacing: 0.8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.5s ease;
+            margin-top: 18px;
+        }
+
+        .btn:hover {
+            border-color: rgba(110, 165, 142, 0.55);
+            color: #2d4a3e;
+            background: rgba(200, 225, 215, 0.75);
+        }
+
+        /* 頁尾 */
+        footer {
+            background: rgba(185, 210, 198, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #3d5e4e;
+            padding: 50px 30px;
+            text-align: center;
+            border-top: 1px solid rgba(140, 185, 165, 0.3);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            letter-spacing: 0.8px;
+            font-weight: 300;
+        }
+
+        footer a {
+            color: #4a7a65;
+            text-decoration: none;
+            transition: color 0.4s ease;
+        }
+
+        footer a:hover {
+            color: #2d4a3e;
+        }
+
+        /* 響應式 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                padding: 10px 20px;
+            }
+            .nav-links {
+                gap: 5px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-links a {
+                padding: 12px 10px;
+                font-size: 0.9rem;
+            }
+            .manifesto-text {
+                font-size: 1.5rem;
+            }
+            .manifesto-sub {
+                font-size: 0.9rem;
+            }
+            .site-manifesto {
+                padding: 70px 20px 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">澄明之所</div>
+            <ul class="nav-links">
+                <li><a href="#">首頁</a></li>
+                <li><a href="#">關於</a></li>
+                <li><a href="#">文章</a></li>
+                <li><a href="#">聯繫</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="site-manifesto">
+        <div class="manifesto-inner">
+            <p class="manifesto-text">
+                此處非喧囂之地，乃澄明之所。
+            </p>
+            <p class="manifesto-sub">
+                我們以靜默的設計，回應世界的紛繁。<br>
+                每一處留白，都是為了讓您的靈魂得以安然停駐。
+            </p>
+            <div class="manifesto-line"></div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <h2 class="section-title">靜觀 · 內在秩序</h2>
+        <div class="card-grid">
+
+            <div class="card">
+                <h3>純粹</h3>
+                <p>褪去多餘的裝飾，回到事物本來的樣子。設計的盡頭，是看不見設計。</p>
+                <a href="#" class="btn">了解更多</a>
+            </div>
+
+            <div class="card">
+                <h3>留白</h3>
+                <p>空白不是缺失，是呼吸的空間。在靜默中，思緒得以自由流動。</p>
+                <a href="#" class="btn">了解更多</a>
+            </div>
+
+            <div class="card">
+                <h3>流動</h3>
+                <p>如溪水漫過石頭，不爭不搶。自然的節奏，是最高的秩序。</p>
+                <a href="#" class="btn">了解更多</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 澄明之所 · 靜默中見萬物</p>
+        <p style="margin-top: 8px;">
+            <a href="#">關於我們</a> &nbsp;·&nbsp; 
+            <a href="#">聯絡方式</a>
+        </p>
+    </footer>
+
+</body>
+</html>
