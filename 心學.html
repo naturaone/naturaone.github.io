@@ -57,7 +57,6 @@
             text-align: justify;
         }
 
-        /* ===== 原著資訊（框外上方） ===== */
         .work-info {
             text-align: center;
             margin-top: 30px;
@@ -72,7 +71,6 @@
             margin-bottom: 0;
         }
 
-        /* ===== 版權聲明區塊 ===== */
         .license-box {
             margin: 0 auto;
             padding: 30px 25px;
@@ -98,7 +96,6 @@
             text-align: center;
         }
 
-        /* ===== 勾選區塊 ===== */
         .agree-section {
             margin-top: 20px;
             display: flex;
@@ -122,7 +119,6 @@
             user-select: none;
         }
 
-        /* ===== 下載按鈕 ===== */
         .download-btn {
             display: inline-block;
             margin-top: 15px;
@@ -154,7 +150,6 @@
             text-align: center;
         }
 
-        /* ===== 返回連結 ===== */
         .back-section {
             text-align: center;
             padding: 10px 20px 20px;
@@ -174,7 +169,6 @@
             background: rgba(180, 165, 200, 0.15);
         }
 
-        /* ===== 版權欄 ===== */
         .block-four {
             padding: 16px 20px;
             display: flex;
@@ -212,17 +206,14 @@
         <div class="divider"></div>
     </div>
 
-    <!-- 文章內容 -->
     <div class="article-content" id="articleContent">
         <p>載入中……</p>
     </div>
 
-    <!-- 原著資訊（框外上方） -->
     <div class="work-info">
         <p>《大象通解》<br>二〇二三年版</p>
     </div>
 
-    <!-- 版權聲明 -->
     <div class="license-box">
         <p class="license-title">版權聲明</p>
         <p class="license-text">
@@ -234,7 +225,6 @@
         </p>
     </div>
 
-    <!-- 勾選同意 + 下載 -->
     <div class="article-content" style="padding-top: 0;">
 
         <div class="agree-section">
@@ -270,23 +260,23 @@
                 lines.forEach(line => {
                     const trimmed = line.trim();
                     if (trimmed === '') {
+                        const spacer = document.createElement('div');
+                        spacer.style.cssText = 'height: 1.5em;';
+                        container.appendChild(spacer);
                         return;
                     }
-                    // 大標題（## 開頭）— 置中
                     if (trimmed.startsWith('## ')) {
                         const h2 = document.createElement('h2');
                         h2.textContent = trimmed.replace('## ', '').trim();
                         h2.style.cssText = 'font-size: 1.3rem; font-weight: 350; letter-spacing: 2px; color: #dbd2e6; margin: 2em 0 0.8em; text-align: center;';
                         container.appendChild(h2);
                     }
-                    // 小標題（### 開頭）— 置中
                     else if (trimmed.startsWith('### ')) {
                         const h3 = document.createElement('h3');
                         h3.textContent = trimmed.replace('### ', '').trim();
                         h3.style.cssText = 'font-size: 1.1rem; font-weight: 340; letter-spacing: 1.5px; color: #d5cee0; margin: 1.5em 0 0.6em; text-align: center;';
                         container.appendChild(h3);
                     }
-                    // 一般段落
                     else {
                         const p = document.createElement('p');
                         p.textContent = trimmed;
