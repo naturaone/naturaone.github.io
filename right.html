@@ -22,42 +22,48 @@
             flex-direction: column;
         }
 
-        .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .page-header {
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px 20px 10px;
         }
 
-        h1 {
+        .page-header h1 {
             font-size: 2rem;
             font-weight: 350;
             letter-spacing: 4px;
             color: #dbd2e6;
-            margin-bottom: 30px;
         }
 
         .divider {
             width: 40px;
             height: 1px;
             background: rgba(180, 165, 200, 0.5);
-            margin: 30px auto;
+            margin: 20px auto;
         }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 2;
+        .article-content {
+            flex: 1;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px 24px 50px;
+            text-align: left;
+        }
+
+        .article-content p {
+            font-size: 1.05rem;
+            line-height: 2.1;
             color: #d0c8dd;
+            margin-bottom: 1.5em;
+            text-align: justify;
+        }
+
+        .back-section {
+            text-align: center;
+            padding: 10px 20px 20px;
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 40px;
             color: #dcd5e0;
             text-decoration: none;
             border: 1px solid rgba(180, 165, 200, 0.5);
@@ -70,7 +76,6 @@
             background: rgba(180, 165, 200, 0.15);
         }
 
-        /* ===== 版權欄 ===== */
         .block-four {
             padding: 16px 20px;
             display: flex;
@@ -86,20 +91,33 @@
             color: #c5bbd4;
             font-weight: 300;
         }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+            .article-content {
+                padding: 16px 18px 40px;
+            }
+            .article-content p {
+                font-size: 1rem;
+                line-height: 1.9;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="content">
+    <div class="page-header">
         <h1>一二三四五六七八</h1>
         <div class="divider"></div>
-        <p>
-            八方來匯<br>
-            萬象歸一<br>
-            無盡之徑<br>
-            皆始於此
-        </p>
-        <div class="divider"></div>
+    </div>
+
+    <div class="article-content" id="articleContent">
+        <p>載入中……</p>
+    </div>
+
+    <div class="back-section">
         <a href="index.html" class="back-link">← 返回</a>
     </div>
 
@@ -107,5 +125,31 @@
         <p class="copyright">© 2025 一二三四五 · 版權所有</p>
     </footer>
 
+    <script>
+        fetch('right-article.txt')
+            .then(response => {
+                if (!response.ok) throw new Error('文章載入失敗');
+                return response.text();
+            })
+            .then(text => {
+                const container = document.getElementById('articleContent');
+                container.innerHTML = '';
+                const paragraphs = text.split('\n');
+                paragraphs.forEach(line => {
+                    const trimmed = line.trim();
+                    if (trimmed === '') {
+                        return;
+                    }
+                    const p = document.createElement('p');
+                    p.textContent = trimmed;
+                    container.appendChild(p);
+                });
+            })
+            .catch(error => {
+                document.getElementById('articleContent').innerHTML = 
+                    '<p>文章載入失敗，請稍後再試。</p>';
+                console.error(error);
+            });
+    </script>
 </body>
 </html>
