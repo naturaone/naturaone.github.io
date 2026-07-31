@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>一二 · 一二三四五</title>
+    <title>心學 · 一二三四五</title>
     <style>
         * {
             margin: 0;
@@ -22,37 +22,39 @@
             flex-direction: column;
         }
 
-        .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .page-header {
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px 20px 10px;
         }
 
-        h1 {
+        .page-header h1 {
             font-size: 2rem;
             font-weight: 350;
             letter-spacing: 4px;
             color: #dbd2e6;
-            margin-bottom: 30px;
         }
 
         .divider {
             width: 40px;
             height: 1px;
             background: rgba(180, 165, 200, 0.5);
-            margin: 30px auto;
+            margin: 20px auto;
         }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 2;
+        .article-content {
+            flex: 1;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px 24px 50px;
+            text-align: left;
+        }
+
+        .article-content p {
+            font-size: 1.05rem;
+            line-height: 2.1;
             color: #d0c8dd;
+            margin-bottom: 1.5em;
+            text-align: justify;
         }
 
         /* ===== 版權聲明區塊 ===== */
@@ -136,10 +138,18 @@
             border-color: rgba(200, 185, 220, 0.7);
         }
 
+        .download-section {
+            text-align: center;
+        }
+
         /* ===== 返回連結 ===== */
+        .back-section {
+            text-align: center;
+            padding: 10px 20px 20px;
+        }
+
         .back-link {
             display: inline-block;
-            margin-top: 40px;
             color: #dcd5e0;
             text-decoration: none;
             border: 1px solid rgba(180, 165, 200, 0.5);
@@ -168,22 +178,35 @@
             color: #c5bbd4;
             font-weight: 300;
         }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+            .article-content {
+                padding: 16px 18px 40px;
+            }
+            .article-content p {
+                font-size: 1rem;
+                line-height: 1.9;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="content">
-        <h1>一二</h1>
+    <div class="page-header">
+        <h1>心學</h1>
         <div class="divider"></div>
-        <p>
-            陰陽相生<br>
-            虛實共存<br>
-            簡中見繁<br>
-            繁中歸簡
-        </p>
-        <div class="divider"></div>
+    </div>
 
-        <!-- 版權聲明 -->
+    <!-- 文章內容 - 自動載入 middle-article.txt -->
+    <div class="article-content" id="articleContent">
+        <p>載入中……</p>
+    </div>
+
+    <!-- 版權聲明 -->
+    <div class="article-content" style="padding-top: 0;">
         <div class="license-box">
             <p class="license-title">版權聲明</p>
             <p class="license-text">
@@ -211,11 +234,14 @@
         </div>
 
         <!-- 下載按鈕 -->
-        <a href="原著作品.pdf" download class="download-btn" id="downloadBtn" onclick="return checkDownload(event)">
-            ⬇ 下載原著
-        </a>
+        <div class="download-section">
+            <a href="原著作品.pdf" download class="download-btn" id="downloadBtn" onclick="return checkDownload(event)">
+                ⬇ 下載原著
+            </a>
+        </div>
+    </div>
 
-        <div class="divider"></div>
+    <div class="back-section">
         <a href="index.html" class="back-link">← 返回</a>
     </div>
 
@@ -224,6 +250,33 @@
     </footer>
 
     <script>
+        // 載入文章
+        fetch('middle-article.txt')
+            .then(response => {
+                if (!response.ok) throw new Error('文章載入失敗');
+                return response.text();
+            })
+            .then(text => {
+                const container = document.getElementById('articleContent');
+                container.innerHTML = '';
+                const paragraphs = text.split('\n');
+                paragraphs.forEach(line => {
+                    const trimmed = line.trim();
+                    if (trimmed === '') {
+                        return;
+                    }
+                    const p = document.createElement('p');
+                    p.textContent = trimmed;
+                    container.appendChild(p);
+                });
+            })
+            .catch(error => {
+                document.getElementById('articleContent').innerHTML = 
+                    '<p>文章載入失敗，請稍後再試。</p>';
+                console.error(error);
+            });
+
+        // 下載按鈕控制
         function toggleDownload() {
             const checkbox = document.getElementById('agreeCheckbox');
             const downloadBtn = document.getElementById('downloadBtn');
