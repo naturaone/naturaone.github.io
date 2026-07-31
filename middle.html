@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>心學 · 一二三四五</title>
+    <title>心學 · 世界心學會</title>
     <style>
         * {
             margin: 0;
@@ -72,7 +72,7 @@
             margin-bottom: 0;
         }
 
-        /* ===== 版權聲明區塊（葫蘆形） ===== */
+        /* ===== 版權聲明區塊 ===== */
         .license-box {
             margin: 0 auto;
             padding: 30px 25px;
@@ -96,6 +96,13 @@
             color: #c5bbd4;
             display: inline-block;
             text-align: center;
+        }
+
+        .license-text.work-info-text {
+            font-size: 1rem;
+            color: #dbd2e6;
+            letter-spacing: 3px;
+            line-height: 2.4;
         }
 
         /* ===== 勾選區塊 ===== */
@@ -212,7 +219,7 @@
         <div class="divider"></div>
     </div>
 
-    <!-- 文章內容 - 自動載入 middle-article.txt -->
+    <!-- 文章內容 -->
     <div class="article-content" id="articleContent">
         <p>載入中……</p>
     </div>
@@ -222,7 +229,7 @@
         <p>《大象通解》<br>二〇二三年版</p>
     </div>
 
-    <!-- 版權聲明（葫蘆形居中） -->
+    <!-- 版權聲明 -->
     <div class="license-box">
         <p class="license-title">版權聲明</p>
         <p class="license-text">
@@ -243,14 +250,14 @@
         </div>
 
         <div class="download-section">
-            <a href="原著作品.pdf" download class="download-btn" id="downloadBtn" onclick="return checkDownload(event)">
+            <a href="大象通解.pdf" download class="download-btn" id="downloadBtn" onclick="return checkDownload(event)">
                 ⬇ 下載原著
             </a>
         </div>
     </div>
 
     <div class="back-section">
-        <a href="index.html" class="back-link">← 返回</a>
+        <a href="首頁.html" class="back-link">← 返回</a>
     </div>
 
     <footer class="block-four">
@@ -259,7 +266,7 @@
 
     <script>
         // 載入文章
-        fetch('middle-article.txt')
+        fetch('心學-article.txt')
             .then(response => {
                 if (!response.ok) throw new Error('文章載入失敗');
                 return response.text();
