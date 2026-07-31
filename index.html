@@ -22,7 +22,7 @@
             flex-direction: column;
         }
 
-        /* ===== 第一塊 ===== */
+        /* ===== 第一塊：黛紫從上往下漸變清透（0.5份） ===== */
         .block-one {
             flex: 0.5;
             display: flex;
@@ -31,7 +31,12 @@
             justify-content: center;
             text-align: center;
             padding: 10px 20px;
-            background: #584267;
+            background: linear-gradient(
+                to bottom,
+                #4a3558 0%,
+                #584267 60%,
+                #665078 100%
+            );
         }
 
         .logo-img {
@@ -54,7 +59,7 @@
             margin: 10px auto 0;
         }
 
-        /* ===== 第二塊：塗白 #f0ead8 ===== */
+        /* ===== 第二塊：塗白 #f0ead8（3份） ===== */
         .block-two {
             flex: 3;
             display: flex;
@@ -81,7 +86,7 @@
             margin: 35px auto 0;
         }
 
-        /* ===== 第三塊：左中右漸淡 ===== */
+        /* ===== 第三塊：左中右漸淡（1.5份） ===== */
         .block-three {
             flex: 1.5;
             display: flex;
@@ -134,7 +139,7 @@
             color: #e0d8ec;
         }
 
-        /* ===== 第四塊 ===== */
+        /* ===== 第四塊：深黛半透明收尾（0.5份） ===== */
         .block-four {
             flex: 0.5;
             display: flex;
@@ -193,13 +198,13 @@
     </section>
 
     <section class="block-three">
-        <a href="left.html" class="portal-card left-card">
+        <a href="知足天律.html" class="portal-card left-card">
             <span class="portal-title">知足天律</span>
         </a>
-        <a href="middle.html" class="portal-card middle-card">
+        <a href="心學.html" class="portal-card middle-card">
             <span class="portal-title">心學</span>
         </a>
-        <a href="right.html" class="portal-card right-card">
+        <a href="大同世界建造指南.html" class="portal-card right-card">
             <span class="portal-title">大同世界建造指南</span>
         </a>
     </section>
