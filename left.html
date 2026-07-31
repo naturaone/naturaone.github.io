@@ -20,13 +20,17 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
         }
 
         .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             max-width: 600px;
+            margin: 0 auto;
             padding: 40px 20px;
         }
 
@@ -65,9 +69,27 @@
         .back-link:hover {
             background: rgba(180, 165, 200, 0.15);
         }
+
+        /* ===== 版權欄 ===== */
+        .block-four {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: rgba(60, 45, 78, 0.7);
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: #c5bbd4;
+            font-weight: 300;
+        }
     </style>
 </head>
 <body>
+
     <div class="content">
         <h1>一二三四</h1>
         <div class="divider"></div>
@@ -80,5 +102,10 @@
         <div class="divider"></div>
         <a href="index.html" class="back-link">← 返回</a>
     </div>
+
+    <footer class="block-four">
+        <p class="copyright">© 2025 一二三四五 · 版權所有</p>
+    </footer>
+
 </body>
 </html>
