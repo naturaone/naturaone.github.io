@@ -137,7 +137,11 @@
                 const lines = text.split('\n');
                 lines.forEach(line => {
                     const trimmed = line.trim();
+                    // 空行 → 產生間距
                     if (trimmed === '') {
+                        const spacer = document.createElement('div');
+                        spacer.style.cssText = 'height: 1.5em;';
+                        container.appendChild(spacer);
                         return;
                     }
                     // 大標題（## 開頭）— 置中
