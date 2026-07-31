@@ -98,13 +98,6 @@
             text-align: center;
         }
 
-        .license-text.work-info-text {
-            font-size: 1rem;
-            color: #dbd2e6;
-            letter-spacing: 3px;
-            line-height: 2.4;
-        }
-
         /* ===== 勾選區塊 ===== */
         .agree-section {
             margin-top: 20px;
@@ -265,7 +258,6 @@
     </footer>
 
     <script>
-        // 載入文章
         fetch('心學-article.txt')
             .then(response => {
                 if (!response.ok) throw new Error('文章載入失敗');
@@ -274,15 +266,32 @@
             .then(text => {
                 const container = document.getElementById('articleContent');
                 container.innerHTML = '';
-                const paragraphs = text.split('\n');
-                paragraphs.forEach(line => {
+                const lines = text.split('\n');
+                lines.forEach(line => {
                     const trimmed = line.trim();
                     if (trimmed === '') {
                         return;
                     }
-                    const p = document.createElement('p');
-                    p.textContent = trimmed;
-                    container.appendChild(p);
+                    // 大標題（## 開頭）— 置中
+                    if (trimmed.startsWith('## ')) {
+                        const h2 = document.createElement('h2');
+                        h2.textContent = trimmed.replace('## ', '').trim();
+                        h2.style.cssText = 'font-size: 1.3rem; font-weight: 350; letter-spacing: 2px; color: #dbd2e6; margin: 2em 0 0.8em; text-align: center;';
+                        container.appendChild(h2);
+                    }
+                    // 小標題（### 開頭）— 置中
+                    else if (trimmed.startsWith('### ')) {
+                        const h3 = document.createElement('h3');
+                        h3.textContent = trimmed.replace('### ', '').trim();
+                        h3.style.cssText = 'font-size: 1.1rem; font-weight: 340; letter-spacing: 1.5px; color: #d5cee0; margin: 1.5em 0 0.6em; text-align: center;';
+                        container.appendChild(h3);
+                    }
+                    // 一般段落
+                    else {
+                        const p = document.createElement('p');
+                        p.textContent = trimmed;
+                        container.appendChild(p);
+                    }
                 });
             })
             .catch(error => {
@@ -291,7 +300,6 @@
                 console.error(error);
             });
 
-        // 下載按鈕控制
         function toggleDownload() {
             const checkbox = document.getElementById('agreeCheckbox');
             const downloadBtn = document.getElementById('downloadBtn');
