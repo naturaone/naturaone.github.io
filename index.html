@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>協會</title>
+    <title>一二三四五</title>
     <style>
         * {
             margin: 0;
@@ -15,121 +15,176 @@
         }
 
         body {
-            background-color: #d8e8e0;
-            color: #3d5e4e;
+            background-color: #584267;
+            color: #dcd5e0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* ===== 第一塊：機構名稱 ===== */
+        /* ===== 第一塊：黛紫從上往下漸變清透（0.5份） ===== */
         .block-one {
+            flex: 0.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 100px 20px 40px;
+            padding: 10px 20px;
+            background: linear-gradient(
+                to bottom,
+                #4a3558 0%,
+                #584267 60%,
+                #665078 100%
+            );
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            margin-bottom: 8px;
         }
 
         .org-name {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 350;
-            letter-spacing: 2px;
-            color: #3d5e4e;
-        }
-
-        /* ===== 第二塊：宣言 ===== */
-        .block-two {
-            text-align: center;
-            padding: 20px 20px 60px;
-        }
-
-        .manifesto {
-            font-size: 1.2rem;
-            font-weight: 300;
-            letter-spacing: 1.5px;
-            color: #5a7a68;
-            line-height: 1.8;
+            letter-spacing: 3px;
+            color: #dbd2e6;
         }
 
         .divider {
             width: 40px;
             height: 1px;
-            background: rgba(140, 185, 165, 0.5);
-            margin: 30px auto 0;
+            background: rgba(180, 165, 200, 0.5);
+            margin: 10px auto 0;
         }
 
-        /* ===== 第三塊：三大欄 ===== */
-        .block-three {
+        /* ===== 第二塊：無痕呼吸 + 右下鵝黃微深（3份） ===== */
+        .block-two {
+            flex: 3;
             display: flex;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px 40px 80px;
-            gap: 30px;
-            flex: 1;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background: 
+                radial-gradient(
+                    ellipse 100% 80% at center,
+                    #fff9c4 0%,
+                    #fffcf0 60%,
+                    #fffbf3 100%
+                ),
+                linear-gradient(
+                    135deg,
+                    transparent 60%,
+                    rgba(240, 225, 140, 0.12) 100%
+                );
+            background-blend-mode: normal;
+            animation: breathe 12s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0% { 
+                background: 
+                    radial-gradient(ellipse 100% 80% at center, #fff9c4 0%, #fffcf0 60%, #fffbf3 100%),
+                    linear-gradient(135deg, transparent 60%, rgba(240, 225, 140, 0.12) 100%);
+            }
+            50% { 
+                background: 
+                    radial-gradient(ellipse 100% 80% at center, #fff5a8 0%, #fffae8 60%, #faf5e8 100%),
+                    linear-gradient(135deg, transparent 60%, rgba(225, 205, 110, 0.15) 100%);
+            }
+            100% { 
+                background: 
+                    radial-gradient(ellipse 100% 80% at center, #fff9c4 0%, #fffcf0 60%, #fffbf3 100%),
+                    linear-gradient(135deg, transparent 60%, rgba(240, 225, 140, 0.12) 100%);
+            }
+        }
+
+        .manifesto {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #584267;
+            line-height: 1.6;
+        }
+
+        .block-two .divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(88, 66, 103, 0.3);
+            margin: 35px auto 0;
+        }
+
+        /* ===== 第三塊：左中右漸淡（1.5份） ===== */
+        .block-three {
+            flex: 1.5;
+            display: flex;
+            width: 100%;
         }
 
         .portal-card {
             flex: 1;
-            background: rgba(220, 235, 228, 0.5);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            border: 1px solid rgba(140, 185, 165, 0.25);
-            padding: 50px 30px;
-            text-align: center;
+            border: none;
+            border-right: 1px solid rgba(180, 165, 200, 0.15);
             text-decoration: none;
-            color: #3d5e4e;
-            transition: all 0.6s ease;
+            color: #dcd5e0;
+            transition: all 0.7s ease;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            min-height: 250px;
+            cursor: pointer;
+            padding: 0;
         }
 
-        .portal-card:hover {
-            background: rgba(200, 225, 215, 0.7);
-            border-color: rgba(110, 165, 142, 0.45);
+        .portal-card:last-child {
+            border-right: none;
         }
 
-        .portal-card h2 {
-            font-size: 1.3rem;
+        .portal-card.left-card {
+            background: rgba(75, 55, 90, 0.5);
+        }
+        .portal-card.left-card:hover {
+            background: rgba(85, 65, 100, 0.65);
+        }
+
+        .portal-card.middle-card {
+            background: rgba(90, 70, 108, 0.45);
+        }
+        .portal-card.middle-card:hover {
+            background: rgba(100, 80, 118, 0.6);
+        }
+
+        .portal-card.right-card {
+            background: rgba(105, 85, 125, 0.4);
+        }
+        .portal-card.right-card:hover {
+            background: rgba(115, 95, 135, 0.55);
+        }
+
+        .portal-card .portal-title {
+            font-size: 1.2rem;
             font-weight: 340;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
+            letter-spacing: 3px;
+            color: #e0d8ec;
         }
 
-        .portal-card .arrow {
-            font-size: 1.5rem;
-            font-weight: 200;
-            color: rgba(140, 185, 165, 0.6);
-            margin-top: 15px;
-            transition: all 0.6s ease;
-        }
-
-        .portal-card:hover .arrow {
-            color: rgba(100, 155, 132, 0.8);
-            transform: translateY(4px);
-        }
-
-        .portal-card .badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            color: #5a7a68;
-            border: 1px solid rgba(140, 185, 165, 0.4);
-            padding: 4px 14px;
-            margin-top: 10px;
-        }
-
-        /* ===== 第四塊：版權 ===== */
+        /* ===== 第四塊：深黛半透明收尾（0.5份） ===== */
         .block-four {
+            flex: 0.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 40px 20px;
-            background: rgba(185, 210, 198, 0.5);
-            border-top: 1px solid rgba(140, 185, 165, 0.2);
+            padding: 10px 20px;
+            background: rgba(60, 45, 78, 0.7);
         }
 
         .copyright {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 1px;
-            color: #5a7a68;
+            color: #c5bbd4;
             font-weight: 300;
         }
 
@@ -137,63 +192,52 @@
         @media (max-width: 768px) {
             .block-three {
                 flex-direction: column;
-                padding: 20px 20px 60px;
-                gap: 20px;
             }
             .portal-card {
-                min-height: 180px;
-                padding: 35px 25px;
+                padding: 16px;
+                border-right: none;
+                border-bottom: 1px solid rgba(180, 165, 200, 0.15);
             }
-            .block-one {
-                padding: 60px 20px 25px;
-            }
-            .org-name {
-                font-size: 1.3rem;
+            .portal-card:last-child {
+                border-bottom: none;
             }
             .manifesto {
-                font-size: 1rem;
+                font-size: 1.5rem;
+            }
+            .org-name {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 第一塊：機構名稱 -->
     <section class="block-one">
-        <h1 class="org-name">協會</h1>
+        <div class="logo-img"></div>
+        <h1 class="org-name">一二三四五</h1>
+        <div class="divider"></div>
     </section>
 
-    <!-- 第二塊：宣言 -->
     <section class="block-two">
         <p class="manifesto">此處非喧囂之地，乃澄明之所。</p>
         <div class="divider"></div>
     </section>
 
-    <!-- 第三塊：三大入口 -->
     <section class="block-three">
-        
-        <a href="left.html" class="portal-card">
-            <h2>左</h2>
-            <span class="arrow">→</span>
+        <a href="left.html" class="portal-card left-card">
+            <span class="portal-title">一二三四</span>
         </a>
-
-        <a href="middle.html" class="portal-card">
-            <h2>中</h2>
-            <span class="badge">附 · 原著下載</span>
-            <span class="arrow">→</span>
+        <a href="middle.html" class="portal-card middle-card">
+            <span class="portal-title">一二</span>
         </a>
-
-        <a href="right.html" class="portal-card">
-            <h2>右</h2>
-            <span class="arrow">→</span>
+        <a href="right.html" class="portal-card right-card">
+            <span class="portal-title">一二三四五六七八</span>
         </a>
-
     </section>
 
-    <!-- 第四塊：版權 -->
     <footer class="block-four">
-        <p class="copyright">© 2025 協會 · 版權所有</p>
+        <p class="copyright">© 2025 一二三四五 · 版權所有</p>
     </footer>
 
 </body>
-</html>
+</html>    
