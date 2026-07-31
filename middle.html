@@ -57,33 +57,29 @@
             text-align: justify;
         }
 
-        /* ===== 原著資訊 ===== */
+        /* ===== 原著資訊（框外上方） ===== */
         .work-info {
-            margin-top: 30px;
             text-align: center;
+            margin-top: 30px;
+            margin-bottom: 10px;
         }
 
-        .work-title {
-            font-size: 1.1rem;
-            font-weight: 350;
-            letter-spacing: 3px;
+        .work-info p {
+            font-size: 1rem;
             color: #dbd2e6;
+            letter-spacing: 3px;
+            line-height: 2.2;
+            margin-bottom: 0;
         }
 
-        .work-year {
-            font-size: 0.8rem;
-            color: #b8aec4;
-            letter-spacing: 2px;
-            margin-top: 6px;
-        }
-
-        /* ===== 版權聲明區塊 ===== */
+        /* ===== 版權聲明區塊（葫蘆形） ===== */
         .license-box {
-            margin-top: 20px;
-            padding: 20px 25px;
+            margin: 0 auto;
+            padding: 30px 25px;
             background: rgba(60, 45, 78, 0.5);
             border: 1px solid rgba(180, 165, 200, 0.25);
-            text-align: left;
+            text-align: center;
+            max-width: 320px;
         }
 
         .license-title {
@@ -91,14 +87,14 @@
             font-weight: 400;
             letter-spacing: 2px;
             color: #dbd2e6;
-            margin-bottom: 15px;
-            text-align: center;
+            margin-bottom: 18px;
         }
 
         .license-text {
-            font-size: 0.85rem;
-            line-height: 2.2;
+            font-size: 0.9rem;
+            line-height: 2.6;
             color: #c5bbd4;
+            display: inline-block;
             text-align: center;
         }
 
@@ -221,36 +217,33 @@
         <p>載入中……</p>
     </div>
 
-    <!-- 原著資訊 + 版權聲明 -->
+    <!-- 原著資訊（框外上方） -->
+    <div class="work-info">
+        <p>《大象通解》<br>二〇二三年版</p>
+    </div>
+
+    <!-- 版權聲明（葫蘆形居中） -->
+    <div class="license-box">
+        <p class="license-title">版權聲明</p>
+        <p class="license-text">
+            本作品為原著創作<br>
+            僅供個人學習使用<br>
+            禁止商業用途及轉售<br>
+            轉載引用請註明出處<br>
+            禁止修改、重製
+        </p>
+    </div>
+
+    <!-- 勾選同意 + 下載 -->
     <div class="article-content" style="padding-top: 0;">
 
-        <!-- 原著資訊 -->
-        <div class="work-info">
-            <p class="work-title">《大象通解》</p>
-            <p class="work-year">二〇二三年出版</p>
-        </div>
-
-        <!-- 版權聲明 -->
-        <div class="license-box">
-            <p class="license-title">版權聲明</p>
-            <p class="license-text">
-                本作品為原著創作<br>
-                僅供個人學習使用<br>
-                禁止商業用途及轉售<br>
-                轉載引用請註明出處<br>
-                禁止修改、重製
-            </p>
-        </div>
-
-        <!-- 勾選同意 -->
         <div class="agree-section">
             <input type="checkbox" id="agreeCheckbox" onchange="toggleDownload()">
             <label for="agreeCheckbox">我已閱讀並同意以上版權條款</label>
         </div>
 
-        <!-- 下載按鈕 -->
         <div class="download-section">
-            <a href="大象通解.pdf" download class="download-btn" id="downloadBtn" onclick="return checkDownload(event)">
+            <a href="原著作品.pdf" download class="download-btn" id="downloadBtn" onclick="return checkDownload(event)">
                 ⬇ 下載原著
             </a>
         </div>
