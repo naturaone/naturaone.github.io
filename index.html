@@ -22,7 +22,7 @@
             flex-direction: column;
         }
 
-        /* ===== 第一塊：黛紫從上往下漸變清透（0.5份） ===== */
+        /* ===== 第一塊 ===== */
         .block-one {
             flex: 0.5;
             display: flex;
@@ -31,12 +31,7 @@
             justify-content: center;
             text-align: center;
             padding: 10px 20px;
-            background: linear-gradient(
-                to bottom,
-                #4a3558 0%,
-                #584267 60%,
-                #665078 100%
-            );
+            background: #584267;
         }
 
         .logo-img {
@@ -59,7 +54,7 @@
             margin: 10px auto 0;
         }
 
-        /* ===== 第二塊：無痕呼吸 + 右下鵝黃微深（3份） ===== */
+        /* ===== 第二塊：塗白 #f0ead8 ===== */
         .block-two {
             flex: 3;
             display: flex;
@@ -68,39 +63,7 @@
             justify-content: center;
             text-align: center;
             padding: 20px;
-            background: 
-                radial-gradient(
-                    ellipse 100% 80% at center,
-                    #f7f0d8 0%,
-                    #faf6e8 60%,
-                    #f8f3e5 100%
-                ),
-                linear-gradient(
-                    135deg,
-                    transparent 60%,
-                    rgba(220, 200, 120, 0.1) 100%
-                );
-            background-blend-mode: normal;
-            animation: breathe 14s ease-in-out infinite;
-            will-change: background;
-        }
-
-        @keyframes breathe {
-            0% { 
-                background: 
-                    radial-gradient(ellipse 100% 80% at center, #f7f0d8 0%, #faf6e8 60%, #f8f3e5 100%),
-                    linear-gradient(135deg, transparent 60%, rgba(220, 200, 120, 0.1) 100%);
-            }
-            50% { 
-                background: 
-                    radial-gradient(ellipse 100% 80% at center, #f3ebcc 0%, #f7f1de 60%, #f5eed9 100%),
-                    linear-gradient(135deg, transparent 60%, rgba(210, 188, 105, 0.12) 100%);
-            }
-            100% { 
-                background: 
-                    radial-gradient(ellipse 100% 80% at center, #f7f0d8 0%, #faf6e8 60%, #f8f3e5 100%),
-                    linear-gradient(135deg, transparent 60%, rgba(220, 200, 120, 0.1) 100%);
-            }
+            background: #f0ead8;
         }
 
         .manifesto {
@@ -118,7 +81,7 @@
             margin: 35px auto 0;
         }
 
-        /* ===== 第三塊：左中右漸淡（1.5份） ===== */
+        /* ===== 第三塊：左中右漸淡 ===== */
         .block-three {
             flex: 1.5;
             display: flex;
@@ -171,7 +134,7 @@
             color: #e0d8ec;
         }
 
-        /* ===== 第四塊：深黛半透明收尾（0.5份） ===== */
+        /* ===== 第四塊 ===== */
         .block-four {
             flex: 0.5;
             display: flex;
