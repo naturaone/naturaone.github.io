@@ -182,6 +182,17 @@
             font-weight: 300;
         }
 
+        /* 手機端專用 */
+        .mobile-institutes-row {
+            display: none;
+            width: 100%;
+        }
+
+        .mobile-institutes-row .institute-card {
+            flex: 1;
+            border-bottom: 1px solid rgba(200, 180, 140, 0.5);
+        }
+
         .mobile-submenu {
             display: none;
             width: 100%;
@@ -216,38 +227,30 @@
             color: #3a2e22;
         }
 
-        .institute-col {
-            display: flex;
-            flex-direction: column;
+        .mobile-institute-wrapper {
             width: 100%;
-            border-bottom: 1px solid rgba(200, 180, 140, 0.5);
-        }
-
-        .institute-col:last-child {
-            border-bottom: none;
         }
 
         @media (max-width: 768px) {
+            /* 隱藏桌面版機構區 */
             .block-institutes {
-                flex-direction: column;
+                display: none;
             }
-
-            .institute-card {
-                padding: 16px 16px;
-                border-right: none;
-                border-bottom: 1px solid rgba(200, 180, 140, 0.5);
-            }
-
-            .institute-card:last-child {
-                border-bottom: none;
-            }
-
             .submenu-wrapper {
                 display: none;
             }
 
-            .mobile-submenu-wrapper {
-                display: block;
+            /* 顯示手機版機構區 */
+            .mobile-institutes-row {
+                display: flex;
+            }
+
+            .institute-card {
+                padding: 16px 16px;
+                border-right: 1px solid rgba(200, 180, 140, 0.5);
+            }
+            .institute-card:last-child {
+                border-right: none;
             }
 
             .manifesto {
@@ -266,7 +269,8 @@
         }
 
         @media (min-width: 769px) {
-            .mobile-submenu-wrapper {
+            .mobile-institutes-row,
+            .mobile-institute-wrapper {
                 display: none;
             }
         }
@@ -286,6 +290,7 @@
 
     <div class="section-divider"></div>
 
+    <!-- 桌面版機構 -->
     <section class="block-institutes" id="desktopInstitutes">
         <div class="institute-card xinxuehui"
              onmouseenter="showSubmenu('xin')"
@@ -301,6 +306,7 @@
         </div>
     </section>
 
+    <!-- 桌面版子選單 -->
     <div class="submenu-wrapper"
          onmouseenter="cancelHideTimer()"
          onmouseleave="startHideTimer()">
@@ -315,27 +321,30 @@
 
     <div class="section-divider"></div>
 
-    <div class="mobile-submenu-wrapper">
-        <div class="institute-col">
-            <div class="institute-card xinxuehui"
-                 onclick="toggleMobileSub('mobileSubXin')">
-                <span class="institute-name">世界心學會</span>
-                <span class="institute-subtitle">引護精神</span>
-            </div>
-            <div class="mobile-submenu" id="mobileSubXin">
-                <a href="知足天律.html">知足天律</a>
-                <a href="心學.html">心學</a>
-            </div>
+    <!-- 手機版機構 -->
+    <div class="mobile-institutes-row">
+        <div class="institute-card xinxuehui"
+             onclick="toggleMobileSub('mobileSubXin')">
+            <span class="institute-name">世界心學會</span>
+            <span class="institute-subtitle">引護精神</span>
         </div>
-        <div class="institute-col">
-            <div class="institute-card minsheng"
-                 onclick="toggleMobileSub('mobileSubMin')">
-                <span class="institute-name">世界民生中心</span>
-                <span class="institute-subtitle">服務群生</span>
-            </div>
-            <div class="mobile-submenu" id="mobileSubMin">
-                <a href="大同世界建造指南.html">大同世界建造指南</a>
-            </div>
+        <div class="institute-card minsheng"
+             onclick="toggleMobileSub('mobileSubMin')">
+            <span class="institute-name">世界民生中心</span>
+            <span class="institute-subtitle">服務群生</span>
+        </div>
+    </div>
+
+    <!-- 手機版子選單 -->
+    <div class="mobile-institute-wrapper">
+        <div class="mobile-submenu" id="mobileSubXin">
+            <a href="知足天律.html">知足天律</a>
+            <a href="心學.html">心學</a>
+        </div>
+    </div>
+    <div class="mobile-institute-wrapper">
+        <div class="mobile-submenu" id="mobileSubMin">
+            <a href="大同世界建造指南.html">大同世界建造指南</a>
         </div>
     </div>
 
