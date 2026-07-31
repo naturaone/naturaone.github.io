@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>左 · 協會</title>
+    <title>一二三四 · 一二三四五</title>
     <style>
         * {
             margin: 0;
@@ -13,47 +13,72 @@
             font-weight: 300;
             letter-spacing: 0.5px;
         }
+
         body {
-            background-color: #d8e8e0;
-            color: #3d5e4e;
-            line-height: 1.9;
+            background-color: #584267;
+            color: #dcd5e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 80px 30px;
+
+        .content {
+            max-width: 600px;
+            padding: 40px 20px;
         }
-        .back {
-            display: inline-block;
-            color: #5a7a68;
-            text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            margin-bottom: 50px;
-            transition: color 0.4s ease;
-        }
-        .back:hover {
-            color: #2d4a3e;
-        }
+
         h1 {
-            font-size: 1.5rem;
-            font-weight: 340;
-            letter-spacing: 1.5px;
+            font-size: 2rem;
+            font-weight: 350;
+            letter-spacing: 4px;
+            color: #dbd2e6;
             margin-bottom: 30px;
         }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(180, 165, 200, 0.5);
+            margin: 30px auto;
+        }
+
         p {
-            font-size: 0.95rem;
-            color: #5a7a68;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #d0c8dd;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: #dcd5e0;
+            text-decoration: none;
+            border: 1px solid rgba(180, 165, 200, 0.5);
+            padding: 10px 30px;
+            letter-spacing: 2px;
+            transition: all 0.5s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(180, 165, 200, 0.15);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back">← 返回</a>
-        <h1>左</h1>
-        <p>此處待填寫文章內容。</p>
-        <p>褪去多餘的裝飾，回到事物本來的樣子。設計的盡頭，是看不見設計。</p>
+    <div class="content">
+        <h1>一二三四</h1>
+        <div class="divider"></div>
+        <p>
+            萬物伊始<br>
+            循序而生<br>
+            於此尋覓<br>
+            本源之心
+        </p>
+        <div class="divider"></div>
+        <a href="index.html" class="back-link">← 返回</a>
     </div>
 </body>
 </html>
