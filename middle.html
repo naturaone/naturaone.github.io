@@ -20,13 +20,17 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
         }
 
         .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             max-width: 600px;
+            margin: 0 auto;
             padding: 40px 20px;
         }
 
@@ -51,6 +55,88 @@
             color: #d0c8dd;
         }
 
+        /* ===== 版權聲明區塊 ===== */
+        .license-box {
+            margin-top: 30px;
+            padding: 20px 25px;
+            background: rgba(60, 45, 78, 0.5);
+            border: 1px solid rgba(180, 165, 200, 0.25);
+            text-align: left;
+        }
+
+        .license-title {
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #dbd2e6;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .license-text {
+            font-size: 0.8rem;
+            line-height: 1.9;
+            color: #c5bbd4;
+        }
+
+        .license-text strong {
+            font-weight: 400;
+            color: #dbd2e6;
+        }
+
+        /* ===== 勾選區塊 ===== */
+        .agree-section {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .agree-section input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #b0a0c0;
+            cursor: pointer;
+        }
+
+        .agree-section label {
+            font-size: 0.85rem;
+            color: #d0c8dd;
+            letter-spacing: 1px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* ===== 下載按鈕 ===== */
+        .download-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 30px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: #dcd5e0;
+            text-decoration: none;
+            border: 1px solid rgba(180, 165, 200, 0.5);
+            background: transparent;
+            cursor: default;
+            transition: all 0.5s ease;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .download-btn.active {
+            opacity: 1;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        .download-btn.active:hover {
+            background: rgba(180, 165, 200, 0.2);
+            border-color: rgba(200, 185, 220, 0.7);
+        }
+
+        /* ===== 返回連結 ===== */
         .back-link {
             display: inline-block;
             margin-top: 40px;
@@ -65,9 +151,27 @@
         .back-link:hover {
             background: rgba(180, 165, 200, 0.15);
         }
+
+        /* ===== 版權欄 ===== */
+        .block-four {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: rgba(60, 45, 78, 0.7);
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: #c5bbd4;
+            font-weight: 300;
+        }
     </style>
 </head>
 <body>
+
     <div class="content">
         <h1>一二</h1>
         <div class="divider"></div>
@@ -78,7 +182,67 @@
             繁中歸簡
         </p>
         <div class="divider"></div>
+
+        <!-- 版權聲明 -->
+        <div class="license-box">
+            <p class="license-title">版權聲明</p>
+            <p class="license-text">
+                <strong>© 2025 一二三四五 · 版權所有</strong><br><br>
+                本作品為原著創作，受版權法保護。<br><br>
+                <strong>授權範圍：</strong><br>
+                僅供個人學習、研究、非商業用途使用。<br><br>
+                <strong>允許事項：</strong><br>
+                ✓ 允許轉載、分享<br>
+                ✓ 須附上原始出處：一二三四五<br>
+                ✓ 須保留此版權聲明完整內容<br><br>
+                <strong>禁止事項：</strong><br>
+                ✗ 禁止未經授權之商業用途<br>
+                ✗ 禁止擅自修改、改作、衍生創作<br>
+                ✗ 禁止移除或變更版權聲明<br><br>
+                下載即表示您同意遵守上述全部條款。<br>
+                如有授權需求，請聯繫作者。
+            </p>
+        </div>
+
+        <!-- 勾選同意 -->
+        <div class="agree-section">
+            <input type="checkbox" id="agreeCheckbox" onchange="toggleDownload()">
+            <label for="agreeCheckbox">我已閱讀並同意以上版權條款</label>
+        </div>
+
+        <!-- 下載按鈕 -->
+        <a href="原著作品.pdf" download class="download-btn" id="downloadBtn" onclick="return checkDownload(event)">
+            ⬇ 下載原著
+        </a>
+
+        <div class="divider"></div>
         <a href="index.html" class="back-link">← 返回</a>
     </div>
+
+    <footer class="block-four">
+        <p class="copyright">© 2025 一二三四五 · 版權所有</p>
+    </footer>
+
+    <script>
+        function toggleDownload() {
+            const checkbox = document.getElementById('agreeCheckbox');
+            const downloadBtn = document.getElementById('downloadBtn');
+            
+            if (checkbox.checked) {
+                downloadBtn.classList.add('active');
+            } else {
+                downloadBtn.classList.remove('active');
+            }
+        }
+
+        function checkDownload(event) {
+            const checkbox = document.getElementById('agreeCheckbox');
+            if (!checkbox.checked) {
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>
