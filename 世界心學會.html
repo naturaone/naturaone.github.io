@@ -142,6 +142,14 @@
             z-index: 0;
         }
 
+        .menu-card:first-child .handle-left {
+            left: calc(50% + 90px);
+        }
+
+        .menu-card:last-child .handle-left {
+            left: calc(50% - 90px);
+        }
+
         .divider-zone {
             width: 1px;
             background: rgba(88, 66, 103, 0.2);
@@ -189,6 +197,12 @@
             }
             .menu-card:last-child {
                 padding-left: 50px;
+            }
+            .menu-card:first-child .handle-left {
+                left: calc(50% + 40px);
+            }
+            .menu-card:last-child .handle-left {
+                left: calc(50% - 40px);
             }
             .handle-left {
                 width: 330px;
