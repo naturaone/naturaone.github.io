@@ -17,9 +17,6 @@
         body {
             background-color: #f0ead8;
             color: #584267;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
             position: relative;
         }
 
@@ -88,9 +85,9 @@
         }
 
         .menu-body {
-            flex: 1;
             display: flex;
             position: relative;
+            height: calc(100vh - 90px);
         }
 
         .menu-card {
@@ -111,8 +108,6 @@
         .menu-card:first-child {
             background: rgba(88, 66, 103, 0.04);
             padding-right: 180px;
-            /* 新增：讓內容靠右對齊，使文字+把手往中間移動 */
-            justify-content: flex-end;
         }
         .menu-card:first-child:hover {
             background: rgba(88, 66, 103, 0.1);
@@ -121,32 +116,20 @@
         .menu-card:last-child {
             background: rgba(88, 66, 103, 0.02);
             padding-left: 180px;
-            /* 新增：讓內容靠左對齊，使文字+把手往中間移動 */
-            justify-content: flex-start;
         }
         .menu-card:last-child:hover {
             background: rgba(88, 66, 103, 0.08);
         }
 
-        /* === 核心修改：把手定位方式 === */
         .card-text {
             position: relative;
             z-index: 1;
-            /* 改為 inline-block，讓文字本身有確定的寬度邊界 */
-            display: inline-block;
-            /* 文字本身保持原樣 */
-            font-size: inherit;
-            letter-spacing: inherit;
         }
 
-        /* 把手改為以 .card-text 為基準的絕對定位，圓心對齊文字中心 */
         .handle-left {
             position: absolute;
-            /* 水平：放在文字容器正中央 */
-            left: 50%;
-            /* 垂直：放在文字容器正中央 */
             top: 50%;
-            /* 把把手自身的中心點拉到定位點上 */
+            left: 50%;
             transform: translate(-50%, -50%);
             width: 540px;
             height: 540px;
@@ -156,7 +139,13 @@
             z-index: 0;
         }
 
-        /* 移除原本針對左右卡片把手的偏移設定，因為現在由 justify-content + padding 控制整體位置 */
+        .menu-card:first-child .handle-left {
+            left: calc(50% + 90px);
+        }
+
+        .menu-card:last-child .handle-left {
+            left: calc(50% - 90px);
+        }
 
         .divider-zone {
             width: 1px;
@@ -165,7 +154,6 @@
             z-index: 1;
         }
 
-        /* === 恢復原本門邊尺寸 === */
         .left-edge {
             position: absolute;
             left: 0;
@@ -196,6 +184,23 @@
             pointer-events: none;
         }
 
+        .site-footer {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to bottom, #665078 0%, #584267 60%, #4a3558 100%);
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: #c5bbd4;
+            font-weight: 300;
+            margin: 0;
+        }
+
         @media (max-width: 768px) {
             .menu-card {
                 font-size: 1rem;
@@ -203,11 +208,15 @@
             }
             .menu-card:first-child {
                 padding-right: 50px;
-                justify-content: flex-end;
             }
             .menu-card:last-child {
                 padding-left: 50px;
-                justify-content: flex-start;
+            }
+            .menu-card:first-child .handle-left {
+                left: calc(50% + 40px);
+            }
+            .menu-card:last-child .handle-left {
+                left: calc(50% - 40px);
             }
             .handle-left {
                 width: 330px;
@@ -228,6 +237,9 @@
             .right-edge {
                 max-width: 84vw;
                 top: 38%;
+            }
+            .menu-body {
+                height: calc(100vh - 80px);
             }
         }
     </style>
@@ -265,9 +277,9 @@
 
     </div>
 
-        <footer style="padding: 12px 20px; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(to bottom, #665078 0%, #584267 60%, #4a3558 100%); flex-shrink: 0;">
-        <p style="font-size: 0.75rem; letter-spacing: 1px; color: #c5bbd4; font-weight: 300; margin: 0;">© 2023-2026 白頭翁</p>
+    <footer class="site-footer">
+        <p class="copyright">© 2023-2026 白頭翁</p>
     </footer>
-    
+
 </body>
 </html>
