@@ -108,6 +108,7 @@
         .menu-card:first-child {
             background: rgba(88, 66, 103, 0.04);
             padding-right: 180px;
+            justify-content: flex-end;
         }
         .menu-card:first-child:hover {
             background: rgba(88, 66, 103, 0.1);
@@ -116,12 +117,12 @@
         .menu-card:last-child {
             background: rgba(88, 66, 103, 0.02);
             padding-left: 180px;
+            justify-content: flex-start;
         }
         .menu-card:last-child:hover {
             background: rgba(88, 66, 103, 0.08);
         }
 
-        /* === 文字絕對定位，豎排 === */
         .card-text {
             position: absolute;
             top: 50%;
@@ -157,7 +158,7 @@
         }
 
         .menu-card:first-child .handle-left {
-            left: calc(50% + 180px);
+            left: calc(50% + 90px);
         }
 
         .menu-card:last-child .handle-left {
@@ -284,7 +285,6 @@
 
         <img class="left-edge" src="左門邊.png" alt="">
 
-        <!-- 心學放左邊 -->
         <a href="心學.html" class="menu-card">
             <img class="handle-left" src="把手.png" alt="">
             <span class="card-text">心學</span>
@@ -292,7 +292,6 @@
 
         <div class="divider-zone"></div>
 
-        <!-- 知足天律放右邊 -->
         <a href="知足天律.html" class="menu-card">
             <img class="handle-left" src="把手.png" alt="">
             <span class="card-text">知足天律</span>
