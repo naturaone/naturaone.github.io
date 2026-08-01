@@ -14,9 +14,18 @@
             letter-spacing: 0.5px;
         }
 
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             background-color: #f0ead8;
-            min-height: 100vh;
+        }
+
+        .main-screen {
+            width: 100%;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -51,6 +60,23 @@
             padding: 20px 20px;
         }
 
+        .site-footer {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to bottom, #665078 0%, #584267 60%, #4a3558 100%);
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: #c5bbd4;
+            font-weight: 300;
+            margin: 0;
+        }
+
         @media (max-width: 768px) {
             .manifesto {
                 font-size: 1.3rem;
@@ -64,15 +90,20 @@
         }
     </style>
 </head>
-<body onclick="location.href='知足天之羽.html'">
+<body>
 
-    <img class="bg-logo" src="知足天首頁.png" alt="Tusita">
+    <div class="main-screen" onclick="location.href='知足天之羽.html'">
+        <img class="bg-logo" src="知足天首頁.png" alt="Tusita">
+        <p class="manifesto">
+            這是一個沒有國別的世界<br>
+            不分種族、貴賤、高低、信仰、貧富、性別等一切殊相<br>
+            人人自主，為本真而活
+        </p>
+    </div>
 
-    <p class="manifesto">
-        這是一個沒有國別的世界<br>
-        不分種族、貴賤、高低、信仰、貧富、性別等一切殊相<br>
-        人人自主，為本真而活
-    </p>
-    
+    <footer class="site-footer">
+        <p class="copyright">© 2023-2026 白頭翁</p>
+    </footer>
+
 </body>
-</html>        
+</html>
