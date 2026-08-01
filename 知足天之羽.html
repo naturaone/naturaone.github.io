@@ -15,48 +15,27 @@
         }
 
         body {
-            background-color: #584267;
-            color: #dcd5e0;
+            background-color: #f0ead8;
+            color: #584267;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-        }
-
-        .menu-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 18px 24px;
-            background: rgba(60, 45, 78, 0.7);
             position: relative;
+            overflow: hidden;
         }
 
-        .back-link {
+        .bg-logo {
             position: absolute;
-            left: 24px;
-            color: #dbd2e6;
-            text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            border: 1px solid rgba(180, 165, 200, 0.5);
-            padding: 5px 16px;
-            transition: all 0.4s ease;
-        }
-
-        .back-link:hover {
-            background: rgba(180, 165, 200, 0.2);
-        }
-
-        .menu-title {
-            font-size: 1.1rem;
-            font-weight: 350;
-            letter-spacing: 3px;
-            color: #dbd2e6;
-        }
-
-        .menu-body {
-            flex: 1;
-            display: flex;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90vw;
+            height: 90vw;
+            max-width: 700px;
+            max-height: 700px;
+            object-fit: contain;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .institute-card {
@@ -68,36 +47,39 @@
             cursor: pointer;
             transition: background 0.5s ease;
             text-decoration: none;
-            color: #dcd5e0;
-            flex-direction: column;
+            color: #584267;
+            position: relative;
+            z-index: 1;
         }
 
         .institute-card.xinxuehui {
-            background: rgba(120, 105, 140, 0.5);
+            background: rgba(88, 66, 103, 0.04);
         }
         .institute-card.xinxuehui:hover {
-            background: rgba(130, 115, 150, 0.6);
+            background: rgba(88, 66, 103, 0.1);
         }
 
         .institute-card.minsheng {
-            background: rgba(145, 130, 165, 0.42);
+            background: rgba(88, 66, 103, 0.02);
         }
         .institute-card.minsheng:hover {
-            background: rgba(155, 140, 175, 0.52);
+            background: rgba(88, 66, 103, 0.08);
         }
 
-        .institute-name {
-            font-size: 1.6rem;
+        .institute-name-vertical {
+            writing-mode: vertical-rl;
+            font-size: 2rem;
             font-weight: 350;
-            letter-spacing: 4px;
-            color: #e0d8ec;
-            margin-bottom: 8px;
+            letter-spacing: 8px;
+            color: #584267;
+            margin-bottom: 16px;
         }
 
-        .institute-subtitle {
+        .institute-subtitle-vertical {
+            writing-mode: vertical-rl;
             font-size: 0.8rem;
-            letter-spacing: 3px;
-            color: #b8aec4;
+            letter-spacing: 6px;
+            color: #7a6e8a;
         }
 
         .divider-zone {
@@ -106,57 +88,56 @@
             align-items: center;
             justify-content: center;
             width: 1px;
-            background: rgba(200, 180, 140, 0.5);
+            background: rgba(88, 66, 103, 0.2);
             position: relative;
+            z-index: 1;
         }
 
         .divider-logo {
-            width: 48px;
-            height: 48px;
-            filter: invert(1) brightness(2);
+            width: 60px;
+            height: 60px;
             object-fit: contain;
-            opacity: 0.7;
+            opacity: 0.35;
             z-index: 1;
         }
 
         @media (max-width: 768px) {
-            .institute-name {
-                font-size: 0.95rem;
-                letter-spacing: 2px;
+            .institute-name-vertical {
+                font-size: 1.2rem;
+                letter-spacing: 4px;
             }
-            .institute-subtitle {
+            .institute-subtitle-vertical {
                 font-size: 0.6rem;
-                letter-spacing: 1.5px;
+                letter-spacing: 3px;
             }
             .divider-logo {
-                width: 28px;
-                height: 28px;
+                width: 32px;
+                height: 32px;
+            }
+            .bg-logo {
+                width: 95vw;
+                height: 95vw;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="menu-header">
-        <a href="知足天.html" class="back-link">← 首頁</a>
-        <span class="menu-title">知足天之羽</span>
+    <img class="bg-logo" src="Tusita-purple.png" alt="Tusita">
+
+    <a href="世界心學會.html" class="institute-card xinxuehui">
+        <span class="institute-name-vertical">世界心學會</span>
+        <span class="institute-subtitle-vertical">引護精神</span>
+    </a>
+
+    <div class="divider-zone">
+        <img class="divider-logo" src="tusita-purple.png" alt="Tusita">
     </div>
 
-    <div class="menu-body">
-        <a href="世界心學會.html" class="institute-card xinxuehui">
-            <span class="institute-name">世界心學會</span>
-            <span class="institute-subtitle">引護精神</span>
-        </a>
-
-        <div class="divider-zone">
-            <img class="divider-logo" src="Tusita.png" alt="Tusita">
-        </div>
-
-        <a href="世界民生中心.html" class="institute-card minsheng">
-            <span class="institute-name">世界民生中心</span>
-            <span class="institute-subtitle">服務群生</span>
-        </a>
-    </div>
+    <a href="世界民生中心.html" class="institute-card minsheng">
+        <span class="institute-name-vertical">世界民生中心</span>
+        <span class="institute-subtitle-vertical">服務群生</span>
+    </a>
 
 </body>
 </html>
