@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: font-family: 'Songti SC', 'Noto Serif SC', 'PingFang TC', 'Noto Sans TC', 'Helvetica Neue', serif;
+            font-family: 'Songti SC', 'Noto Serif SC', 'PingFang TC', 'Noto Sans TC', 'Helvetica Neue', serif;
             font-weight: 300;
             letter-spacing: 0.5px;
         }
@@ -130,21 +130,14 @@
         .handle-left {
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
-            width: 200px;
-            height: 200px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 360px;
+            height: 360px;
             object-fit: contain;
             opacity: 0.55;
             pointer-events: none;
             z-index: 0;
-        }
-
-        .menu-card:first-child .handle-left {
-            right: -10px;
-        }
-
-        .menu-card:last-child .handle-left {
-            left: -10px;
         }
 
         .divider-zone {
@@ -157,11 +150,12 @@
         .left-edge {
             position: absolute;
             left: 0;
-            top: 0;
-            bottom: 0;
+            top: 50%;
+            transform: translateY(-50%);
             width: auto;
-            height: 100%;
-            max-width: 18vw;
+            height: auto;
+            max-width: 72vw;
+            max-height: 90vh;
             object-fit: contain;
             opacity: 0.5;
             z-index: 1;
@@ -171,11 +165,12 @@
         .right-edge {
             position: absolute;
             right: 0;
-            top: 0;
-            bottom: 0;
+            top: 50%;
+            transform: translateY(-50%);
             width: auto;
-            height: 100%;
-            max-width: 18vw;
+            height: auto;
+            max-width: 72vw;
+            max-height: 90vh;
             object-fit: contain;
             opacity: 0.5;
             z-index: 1;
@@ -188,14 +183,8 @@
                 letter-spacing: 2px;
             }
             .handle-left {
-                width: 150px;
-                height: 150px;
-            }
-            .menu-card:first-child .handle-left {
-                right: -5px;
-            }
-            .menu-card:last-child .handle-left {
-                left: -5px;
+                width: 220px;
+                height: 220px;
             }
             .header-logo {
                 width: 44px;
@@ -206,10 +195,10 @@
                 letter-spacing: 3px;
             }
             .left-edge {
-                max-width: 14vw;
+                max-width: 56vw;
             }
             .right-edge {
-                max-width: 14vw;
+                max-width: 56vw;
             }
         }
     </style>
