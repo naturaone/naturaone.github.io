@@ -15,382 +15,64 @@
         }
 
         body {
-            background-color: #584267;
-            color: #dcd5e0;
+            background-color: #f0ead8;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .site-header {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 18px 24px;
-            background: #f0ead8;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
-        .header-logo {
-            width: 102px;
-            height: 102px;
+        .bg-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65vw;
+            height: 65vw;
+            max-width: 500px;
+            max-height: 500px;
             object-fit: contain;
-        }
-
-        .block-manifesto {
-            flex: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            text-align: center;
-            padding: 75px 20px 20px 20px;
-            background: #f0ead8;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .manifesto {
-            font-size: 1.6rem;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-size: 1.8rem;
             font-weight: 300;
             letter-spacing: 2px;
             color: #584267;
-            line-height: 2.2;
-        }
-
-        .manifesto-divider {
-            width: 40px;
-            height: 1px;
-            background: rgba(88, 66, 103, 0.3);
-            margin: 25px auto 0;
-        }
-
-        .section-divider {
-            width: 100%;
-            height: 1px;
-            background: rgba(200, 180, 140, 0.5);
-            margin: 0;
-            padding: 0;
-        }
-
-        .block-institutes {
-            flex: 1;
-            display: flex;
-            width: 100%;
-            position: relative;
-        }
-
-        .institute-card {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.7s ease;
-            padding: 20px 20px;
-            border-right: 1px solid rgba(200, 180, 140, 0.5);
-            border-bottom: 1px solid rgba(180, 165, 200, 0.35);
-            position: relative;
-        }
-
-        .institute-card:last-child {
-            border-right: none;
-        }
-
-        .institute-card.xinxuehui {
-            background: rgba(120, 105, 140, 0.45);
-        }
-        .institute-card.xinxuehui:hover {
-            background: rgba(130, 115, 150, 0.55);
-        }
-
-        .institute-card.minsheng {
-            background: rgba(145, 130, 165, 0.38);
-        }
-        .institute-card.minsheng:hover {
-            background: rgba(155, 140, 175, 0.48);
-        }
-
-        .institute-name {
-            font-size: 1.2rem;
-            font-weight: 350;
-            letter-spacing: 3px;
-            color: #e0d8ec;
-            margin-bottom: 4px;
-        }
-
-        .institute-subtitle {
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            color: #b8aec4;
-        }
-
-        .submenu-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-        .block-submenu {
-            display: none;
-            width: 100%;
-            background: #f0ead8;
-            border-top: 1px solid rgba(180, 165, 200, 0.35);
-            border-bottom: 1px solid rgba(180, 165, 200, 0.35);
-        }
-
-        .block-submenu.visible {
-            display: flex;
-        }
-
-        .block-submenu a {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 22px 16px;
-            color: #584267;
-            text-decoration: none;
-            font-size: 0.95rem;
-            letter-spacing: 3px;
-            transition: all 0.4s ease;
-            border-right: 1px solid rgba(180, 165, 200, 0.35);
-        }
-
-        .block-submenu a:last-child {
-            border-right: none;
-        }
-
-        .block-submenu a:hover {
-            background: rgba(88, 66, 103, 0.06);
-            color: #3a2e22;
-        }
-
-        .block-four {
-            flex: 0.5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 10px 20px;
-            background: linear-gradient(
-                to bottom,
-                #665078 0%,
-                #584267 60%,
-                #4a3558 100%
-            );
-        }
-
-        .copyright {
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            color: #c5bbd4;
-            font-weight: 300;
-        }
-
-        .mobile-institutes-row {
-            display: none;
-            width: 100%;
-        }
-
-        .mobile-institutes-row .institute-card {
-            flex: 1;
-            border-bottom: 1px solid rgba(200, 180, 140, 0.5);
-        }
-
-        .mobile-submenu {
-            display: none;
-            width: 100%;
-            background: #f0ead8;
-            border-top: 1px solid rgba(180, 165, 200, 0.35);
-            border-bottom: 1px solid rgba(180, 165, 200, 0.35);
-        }
-
-        .mobile-submenu.visible {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .mobile-submenu a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 22px;
-            color: #584267;
-            text-decoration: none;
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-            border-bottom: 1px solid rgba(180, 165, 200, 0.35);
-        }
-
-        .mobile-submenu a:last-child {
-            border-bottom: none;
-        }
-
-        .mobile-submenu a:hover {
-            background: rgba(88, 66, 103, 0.06);
-            color: #3a2e22;
-        }
-
-        .mobile-institute-wrapper {
-            width: 100%;
+            line-height: 2.4;
+            padding: 40px 20px;
         }
 
         @media (max-width: 768px) {
-            .block-institutes {
-                display: none;
-            }
-            .submenu-wrapper {
-                display: none;
-            }
-
-            .mobile-institutes-row {
-                display: flex;
-            }
-
-            .institute-card {
-                padding: 16px 16px;
-                border-right: 1px solid rgba(200, 180, 140, 0.5);
-            }
-            .institute-card:last-child {
-                border-right: none;
-            }
-
             .manifesto {
-                font-size: 1.2rem;
-                line-height: 2;
+                font-size: 1.3rem;
+                line-height: 2.2;
             }
-            .institute-name {
-                font-size: 1.1rem;
-            }
-            .header-logo {
-                width: 75px;
-                height: 75px;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .mobile-institutes-row,
-            .mobile-institute-wrapper {
-                display: none;
+            .bg-logo {
+                width: 80vw;
+                height: 80vw;
             }
         }
     </style>
 </head>
-<body>
+<body onclick="location.href='知足天之羽.html'">
 
-    <header class="site-header">
-        <img class="header-logo" src="tusita-purple.png" alt="Tusita">
-    </header>
+    <img class="bg-logo" src="Tusita-purple.png" alt="Tusita">
 
-    <section class="block-manifesto">
-        <p class="manifesto">
-            這是一個沒有國別的世界<br>
-            不分種族、貴賤、高低、信仰、貧富、性別等一切殊相<br>
-            人人自主，為本真而活
-        </p>
-        <div class="manifesto-divider"></div>
-    </section>
+    <p class="manifesto">
+        這是一個沒有國別的世界<br>
+        不分種族、貴賤、高低、信仰、貧富、性別等一切殊相<br>
+        人人自主，為本真而活
+    </p>
 
-    <div class="section-divider"></div>
-
-    <section class="block-institutes" id="desktopInstitutes">
-        <div class="institute-card xinxuehui"
-             onmouseenter="showSubmenu('xin')"
-             onmouseleave="startHideTimer()">
-            <span class="institute-name">世界心學會</span>
-            <span class="institute-subtitle">引護精神</span>
-        </div>
-        <div class="institute-card minsheng"
-             onmouseenter="showSubmenu('min')"
-             onmouseleave="startHideTimer()">
-            <span class="institute-name">世界民生中心</span>
-            <span class="institute-subtitle">服務群生</span>
-        </div>
-    </section>
-
-    <div class="submenu-wrapper"
-         onmouseenter="cancelHideTimer()"
-         onmouseleave="startHideTimer()">
-        <div class="block-submenu" id="submenuXin">
-            <a href="知足天律.html">知足天律</a>
-            <a href="心學.html">心學</a>
-        </div>
-        <div class="block-submenu" id="submenuMin">
-            <a href="大同世界建造指南.html">大同世界建造指南</a>
-        </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <div class="mobile-institutes-row">
-        <div class="institute-card xinxuehui"
-             onclick="toggleMobileSub('mobileSubXin')">
-            <span class="institute-name">世界心學會</span>
-            <span class="institute-subtitle">引護精神</span>
-        </div>
-        <div class="institute-card minsheng"
-             onclick="toggleMobileSub('mobileSubMin')">
-            <span class="institute-name">世界民生中心</span>
-            <span class="institute-subtitle">服務群生</span>
-        </div>
-    </div>
-
-    <div class="mobile-institute-wrapper">
-        <div class="mobile-submenu" id="mobileSubXin">
-            <a href="知足天律.html">知足天律</a>
-            <a href="心學.html">心學</a>
-        </div>
-    </div>
-    <div class="mobile-institute-wrapper">
-        <div class="mobile-submenu" id="mobileSubMin">
-            <a href="大同世界建造指南.html">大同世界建造指南</a>
-        </div>
-    </div>
-
-    <footer class="block-four">
-        <p class="copyright">© 2023-2026 白頭翁</p>
-    </footer>
-
-    <script>
-        let currentSub = null;
-        let hideTimer = null;
-
-        function showSubmenu(type) {
-            cancelHideTimer();
-            document.getElementById('submenuXin').classList.remove('visible');
-            document.getElementById('submenuMin').classList.remove('visible');
-            if (type === 'xin') {
-                document.getElementById('submenuXin').classList.add('visible');
-            } else if (type === 'min') {
-                document.getElementById('submenuMin').classList.add('visible');
-            }
-            currentSub = type;
-        }
-
-        function startHideTimer() {
-            hideTimer = setTimeout(() => {
-                document.getElementById('submenuXin').classList.remove('visible');
-                document.getElementById('submenuMin').classList.remove('visible');
-                currentSub = null;
-            }, 200);
-        }
-
-        function cancelHideTimer() {
-            if (hideTimer) {
-                clearTimeout(hideTimer);
-                hideTimer = null;
-            }
-        }
-
-        function toggleMobileSub(id) {
-            const target = document.getElementById(id);
-            const allSubs = document.querySelectorAll('.mobile-submenu');
-            allSubs.forEach(sub => {
-                if (sub.id !== id) {
-                    sub.classList.remove('visible');
-                }
-            });
-            target.classList.toggle('visible');
-        }
-    </script>
 </body>
 </html>
