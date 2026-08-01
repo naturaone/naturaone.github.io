@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界民生中心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', 'PingFang TC', 'Noto Sans TC', 'Songti SC', serif;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        body {
+            background-color: #584267;
+            color: #dcd5e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 24px;
+            background: rgba(60, 45, 78, 0.7);
+            position: relative;
+        }
+
+        .back-link {
+            position: absolute;
+            left: 24px;
+            color: #dbd2e6;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            border: 1px solid rgba(180, 165, 200, 0.5);
+            padding: 5px 16px;
+            transition: all 0.4s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(180, 165, 200, 0.2);
+        }
+
+        .menu-title {
+            font-size: 1.1rem;
+            font-weight: 350;
+            letter-spacing: 3px;
+            color: #dbd2e6;
+        }
+
+        .menu-body {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50vw;
+            height: 50vw;
+            max-width: 350px;
+            max-height: 350px;
+            object-fit: contain;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 0;
+            filter: invert(1) brightness(2);
+        }
+
+        .menu-card {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.5s ease;
+            text-decoration: none;
+            color: #e0d8ec;
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+            background: rgba(145, 130, 165, 0.35);
+        }
+
+        .menu-card:hover {
+            background: rgba(155, 140, 175, 0.45);
+        }
+
+        @media (max-width: 768px) {
+            .menu-card {
+                font-size: 1.1rem;
+            }
+            .bg-logo {
+                width: 70vw;
+                height: 70vw;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-header">
+        <a href="知足天之羽.html" class="back-link">← 返回</a>
+        <span class="menu-title">世界民生中心</span>
+    </div>
+
+    <div class="menu-body">
+        <img class="bg-logo" src="Tusita.png" alt="Tusita">
+        <a href="大同世界建造指南.html" class="menu-card">大同世界建造指南</a>
+    </div>
+
+</body>
+</html>
