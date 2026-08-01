@@ -91,9 +91,9 @@
             flex: 1;
             display: flex;
             position: relative;
+            overflow: hidden;
         }
 
-        /* 恢復原本卡片基礎樣式，移除額外flex對齊，改由內部群組控制 */
         .menu-card {
             flex: 1;
             display: flex;
@@ -109,12 +109,11 @@
             position: relative;
         }
 
-        /* 保持原始背景與padding設定，僅微調padding讓群組可向中間移動 */
         .menu-card:first-child {
             background: rgba(88, 66, 103, 0.04);
-            padding-right: 180px;
-            /* 靠右對齊，使內容往中間靠 */
+            /* 整體向右靠攏，讓內容接近中間門縫 */
             justify-content: flex-end;
+            padding-right: 120px;
         }
         .menu-card:first-child:hover {
             background: rgba(88, 66, 103, 0.1);
@@ -122,58 +121,49 @@
 
         .menu-card:last-child {
             background: rgba(88, 66, 103, 0.02);
-            padding-left: 180px;
-            /* 靠左對齊，使內容往中間靠 */
+            /* 整體向左靠攏，讓內容接近中間門縫 */
             justify-content: flex-start;
+            padding-left: 120px;
         }
         .menu-card:last-child:hover {
             background: rgba(88, 66, 103, 0.08);
         }
 
-        /* 新增：將把手與文字包在一個區塊內，垂直排列並居中對齊 */
-        .door-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;   /* 水平居中，確保把手圓心對齊文字中央 */
-            justify-content: center;
-            gap: 2px;             /* 把手與文字之間的細微間距，可依需求調整 */
+        /* === 核心改動：把手的定位容器 === */
+        .card-text {
             position: relative;
             z-index: 1;
+            /* 關鍵：設定為 inline-block 讓文字有明確寬度，
+               把手才能以此為基準做絕對定位 */
+            display: inline-block;
+            /* 給文字一些內邊距，讓把手有空間展示 */
+            padding: 0;
+            line-height: 1;
         }
 
-        /* 把手圖片：恢復原本尺寸為540px寬？但原設定是固定寬高，此處保留把手原尺寸設定，
-           但為了在群組內正常顯示，移除絕對定位，改為相對位置，並繼承原尺寸 */
+        /* 把手圖片：以文字為基準做絕對定位，圓心對齊文字中心 */
         .handle-left {
-            display: block;
+            position: absolute;
+            /* 水平居中：將把手左邊緣放在文字中心，再往回拉一半寬度 */
+            left: 50%;
+            /* 垂直居中：將把手上邊緣放在文字中心，再往回拉一半高度 */
+            top: 50%;
+            /* 關鍵：用 transform 讓把手本身的中心點對齊文字的 center */
+            transform: translate(-50%, -50%);
             width: 540px;
             height: 540px;
             object-fit: contain;
             opacity: 0.55;
             pointer-events: none;
-            /* 移除絕對定位，讓它自然處於文字上方 */
-            position: relative;
-            /* 確保圖片本身居中 */
-            margin: 0 auto;
-            /* 原效果中有輕微移動，但現在由群組控制位置，不再需要left偏移 */
+            z-index: 0;
         }
-
-        /* 文字樣式保持原設定 */
-        .card-text {
-            position: relative;
-            z-index: 1;
-            /* 確保文字在把手下方顯示 */
-            display: block;
-        }
-
-        /* 保留原把手在左右卡片中的偏移設定，但現在由door-group整體移動，所以移除個別把手偏移 */
-        /* 原本的 .menu-card:first-child .handle-left 與 last-child 的 left 設定移除，
-           因為不再使用絕對定位，而是依賴群組對齊 */
 
         .divider-zone {
             width: 1px;
             background: rgba(88, 66, 103, 0.2);
             position: relative;
             z-index: 1;
+            flex-shrink: 0;
         }
 
         .left-edge {
@@ -206,19 +196,17 @@
             pointer-events: none;
         }
 
-        /* 響應式保持原有尺寸規則 */
         @media (max-width: 768px) {
             .menu-card {
                 font-size: 1rem;
                 letter-spacing: 2px;
             }
             .menu-card:first-child {
-                padding-right: 50px;
+                padding-right: 40px;
             }
             .menu-card:last-child {
-                padding-left: 50px;
+                padding-left: 40px;
             }
-            /* 手機上把手尺寸縮小，保持原設定 */
             .handle-left {
                 width: 330px;
                 height: 330px;
@@ -255,22 +243,20 @@
 
         <img class="left-edge" src="左門邊.png" alt="">
 
-        <!-- 左門卡片：使用 door-group 將把手與文字垂直排列 -->
         <a href="知足天律.html" class="menu-card">
-            <div class="door-group">
+            <span class="card-text">
                 <img class="handle-left" src="把手.png" alt="">
-                <span class="card-text">知足天律</span>
-            </div>
+                知足天律
+            </span>
         </a>
 
         <div class="divider-zone"></div>
 
-        <!-- 右門卡片 -->
         <a href="心學.html" class="menu-card">
-            <div class="door-group">
+            <span class="card-text">
                 <img class="handle-left" src="把手.png" alt="">
-                <span class="card-text">心學</span>
-            </div>
+                心學
+            </span>
         </a>
 
         <img class="right-edge" src="右門邊.png" alt="">
