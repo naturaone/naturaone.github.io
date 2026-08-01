@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知足天之羽</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', 'PingFang TC', 'Noto Sans TC', 'Songti SC', serif;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        body {
+            background-color: #584267;
+            color: #dcd5e0;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .institute-card {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.5s ease;
+            text-decoration: none;
+            color: #dcd5e0;
+            flex-direction: column;
+        }
+
+        .institute-card.xinxuehui {
+            background: rgba(120, 105, 140, 0.5);
+        }
+        .institute-card.xinxuehui:hover {
+            background: rgba(130, 115, 150, 0.6);
+        }
+
+        .institute-card.minsheng {
+            background: rgba(145, 130, 165, 0.42);
+        }
+        .institute-card.minsheng:hover {
+            background: rgba(155, 140, 175, 0.52);
+        }
+
+        .institute-name {
+            font-size: 1.6rem;
+            font-weight: 350;
+            letter-spacing: 4px;
+            color: #e0d8ec;
+            margin-bottom: 8px;
+        }
+
+        .institute-subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: #b8aec4;
+        }
+
+        .divider-zone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 1px;
+            background: rgba(200, 180, 140, 0.5);
+            position: relative;
+        }
+
+        .divider-logo {
+            width: 48px;
+            height: 48px;
+            filter: invert(1) brightness(2);
+            object-fit: contain;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .institute-name {
+                font-size: 0.95rem;
+                letter-spacing: 2px;
+            }
+            .institute-subtitle {
+                font-size: 0.6rem;
+                letter-spacing: 1.5px;
+            }
+            .divider-logo {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="世界心學會.html" class="institute-card xinxuehui">
+        <span class="institute-name">世界心學會</span>
+        <span class="institute-subtitle">引護精神</span>
+    </a>
+
+    <div class="divider-zone">
+        <img class="divider-logo" src="Tusita.png" alt="Tusita">
+    </div>
+
+    <a href="世界民生中心.html" class="institute-card minsheng">
+        <span class="institute-name">世界民生中心</span>
+        <span class="institute-subtitle">服務群生</span>
+    </a>
+
+</body>
+</html>
