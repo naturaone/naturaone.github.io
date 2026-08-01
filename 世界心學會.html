@@ -107,8 +107,6 @@
 
         .menu-card:first-child {
             background: rgba(88, 66, 103, 0.04);
-            padding-right: 180px;
-            justify-content: flex-end;
         }
         .menu-card:first-child:hover {
             background: rgba(88, 66, 103, 0.1);
@@ -116,17 +114,15 @@
 
         .menu-card:last-child {
             background: rgba(88, 66, 103, 0.02);
-            padding-left: 180px;
-            justify-content: flex-start;
         }
         .menu-card:last-child:hover {
             background: rgba(88, 66, 103, 0.08);
         }
 
+        /* === 把手和文字的定位容器 === */
         .card-text {
             position: absolute;
             top: 50%;
-            left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
             writing-mode: vertical-rl;
@@ -136,20 +132,19 @@
             white-space: nowrap;
         }
 
-        /* 左邊文字：加大數值往中間拉 */
+        /* 左邊文字：往中間拉 */
         .menu-card:first-child .card-text {
-            left: calc(50% + 160px);
+            left: 70%;
         }
 
-        /* 右邊文字：加大數值往中間拉 */
+        /* 右邊文字：往中間拉 */
         .menu-card:last-child .card-text {
-            left: calc(50% - 160px);
+            left: 30%;
         }
 
         .handle-left {
             position: absolute;
             top: 50%;
-            left: 50%;
             transform: translate(-50%, -50%);
             width: 540px;
             height: 540px;
@@ -161,12 +156,12 @@
 
         /* 左邊把手：跟文字同步 */
         .menu-card:first-child .handle-left {
-            left: calc(50% + 160px);
+            left: 70%;
         }
 
         /* 右邊把手：跟文字同步 */
         .menu-card:last-child .handle-left {
-            left: calc(50% - 160px);
+            left: 30%;
         }
 
         .divider-zone {
@@ -228,24 +223,17 @@
                 font-size: 1rem;
                 letter-spacing: 2px;
             }
-            .menu-card:first-child {
-                padding-right: 50px;
-            }
-            .menu-card:last-child {
-                padding-left: 50px;
-            }
-            /* 手機版也往中間拉 */
             .menu-card:first-child .handle-left {
-                left: calc(50% + 70px);
+                left: 65%;
             }
             .menu-card:last-child .handle-left {
-                left: calc(50% - 70px);
+                left: 35%;
             }
             .menu-card:first-child .card-text {
-                left: calc(50% + 70px);
+                left: 65%;
             }
             .menu-card:last-child .card-text {
-                left: calc(50% - 70px);
+                left: 35%;
             }
             .handle-left {
                 width: 330px;
