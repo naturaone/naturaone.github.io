@@ -136,12 +136,14 @@
             white-space: nowrap;
         }
 
+        /* 左邊文字：加大數值往中間拉 */
         .menu-card:first-child .card-text {
-            left: calc(50% + 90px);
+            left: calc(50% + 160px);
         }
 
+        /* 右邊文字：加大數值往中間拉 */
         .menu-card:last-child .card-text {
-            left: calc(50% - 90px);
+            left: calc(50% - 160px);
         }
 
         .handle-left {
@@ -157,12 +159,14 @@
             z-index: 0;
         }
 
+        /* 左邊把手：跟文字同步 */
         .menu-card:first-child .handle-left {
-            left: calc(50% + 90px);
+            left: calc(50% + 160px);
         }
 
+        /* 右邊把手：跟文字同步 */
         .menu-card:last-child .handle-left {
-            left: calc(50% - 90px);
+            left: calc(50% - 160px);
         }
 
         .divider-zone {
@@ -230,17 +234,18 @@
             .menu-card:last-child {
                 padding-left: 50px;
             }
+            /* 手機版也往中間拉 */
             .menu-card:first-child .handle-left {
-                left: calc(50% + 40px);
+                left: calc(50% + 70px);
             }
             .menu-card:last-child .handle-left {
-                left: calc(50% - 40px);
+                left: calc(50% - 70px);
             }
             .menu-card:first-child .card-text {
-                left: calc(50% + 40px);
+                left: calc(50% + 70px);
             }
             .menu-card:last-child .card-text {
-                left: calc(50% - 40px);
+                left: calc(50% - 70px);
             }
             .handle-left {
                 width: 330px;
