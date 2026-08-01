@@ -33,7 +33,7 @@
             max-width: 700px;
             max-height: 700px;
             object-fit: contain;
-            opacity: 0.05;
+            opacity: 0.08;
             pointer-events: none;
             z-index: 0;
         }
@@ -54,6 +54,7 @@
 
         .institute-card.xinxuehui {
             background: rgba(88, 66, 103, 0.04);
+            flex-direction: row;
         }
         .institute-card.xinxuehui:hover {
             background: rgba(88, 66, 103, 0.1);
@@ -61,6 +62,7 @@
 
         .institute-card.minsheng {
             background: rgba(88, 66, 103, 0.02);
+            flex-direction: row-reverse;
         }
         .institute-card.minsheng:hover {
             background: rgba(88, 66, 103, 0.08);
@@ -72,7 +74,6 @@
             font-weight: 350;
             letter-spacing: 8px;
             color: #584267;
-            margin-bottom: 16px;
         }
 
         .institute-subtitle-vertical {
@@ -80,25 +81,25 @@
             font-size: 0.8rem;
             letter-spacing: 6px;
             color: #7a6e8a;
+            margin-left: 16px;
         }
 
-        .divider-zone {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 1px;
-            background: rgba(88, 66, 103, 0.2);
-            position: relative;
-            z-index: 1;
+        .institute-card.minsheng .institute-subtitle-vertical {
+            margin-left: 0;
+            margin-right: 16px;
         }
 
-        .divider-logo {
-            width: 60px;
-            height: 60px;
+        .center-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
             object-fit: contain;
             opacity: 0.35;
-            z-index: 1;
+            z-index: 2;
+            pointer-events: none;
         }
 
         @media (max-width: 768px) {
@@ -109,10 +110,14 @@
             .institute-subtitle-vertical {
                 font-size: 0.6rem;
                 letter-spacing: 3px;
+                margin-left: 10px;
             }
-            .divider-logo {
-                width: 32px;
-                height: 32px;
+            .institute-card.minsheng .institute-subtitle-vertical {
+                margin-right: 10px;
+            }
+            .center-logo {
+                width: 70px;
+                height: 70px;
             }
             .bg-logo {
                 width: 95vw;
@@ -130,13 +135,11 @@
         <span class="institute-subtitle-vertical">引護精神</span>
     </a>
 
-    <div class="divider-zone">
-        <img class="divider-logo" src="tusita-purple.png" alt="Tusita">
-    </div>
+    <img class="center-logo" src="Tusita-purple.png" alt="Tusita">
 
     <a href="世界民生中心.html" class="institute-card minsheng">
-        <span class="institute-name-vertical">世界民生中心</span>
         <span class="institute-subtitle-vertical">服務群生</span>
+        <span class="institute-name-vertical">世界民生中心</span>
     </a>
 
 </body>
