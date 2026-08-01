@@ -111,9 +111,9 @@
 
         .menu-card:first-child {
             background: rgba(88, 66, 103, 0.04);
-            /* 整體向右靠攏，讓內容接近中間門縫 */
+            /* 關鍵：讓內容大幅靠右，接近中間門縫 */
             justify-content: flex-end;
-            padding-right: 120px;
+            padding-right: 60px;
         }
         .menu-card:first-child:hover {
             background: rgba(88, 66, 103, 0.1);
@@ -121,34 +121,29 @@
 
         .menu-card:last-child {
             background: rgba(88, 66, 103, 0.02);
-            /* 整體向左靠攏，讓內容接近中間門縫 */
+            /* 關鍵：讓內容大幅靠左，接近中間門縫 */
             justify-content: flex-start;
-            padding-left: 120px;
+            padding-left: 60px;
         }
         .menu-card:last-child:hover {
             background: rgba(88, 66, 103, 0.08);
         }
 
-        /* === 核心改動：把手的定位容器 === */
+        /* 文字容器 */
         .card-text {
             position: relative;
             z-index: 1;
-            /* 關鍵：設定為 inline-block 讓文字有明確寬度，
-               把手才能以此為基準做絕對定位 */
             display: inline-block;
-            /* 給文字一些內邊距，讓把手有空間展示 */
-            padding: 0;
             line-height: 1;
+            /* 給文字一個最小寬度，確保把手有穩定的定位基準 */
+            min-width: 100px;
         }
 
-        /* 把手圖片：以文字為基準做絕對定位，圓心對齊文字中心 */
+        /* 把手：以文字為中心絕對定位 */
         .handle-left {
             position: absolute;
-            /* 水平居中：將把手左邊緣放在文字中心，再往回拉一半寬度 */
             left: 50%;
-            /* 垂直居中：將把手上邊緣放在文字中心，再往回拉一半高度 */
             top: 50%;
-            /* 關鍵：用 transform 讓把手本身的中心點對齊文字的 center */
             transform: translate(-50%, -50%);
             width: 540px;
             height: 540px;
@@ -173,7 +168,7 @@
             transform: translateY(-50%);
             width: auto;
             height: auto;
-            max-width: 100vw;
+            max-width: 30vw;
             max-height: 90vh;
             object-fit: contain;
             opacity: 0.5;
@@ -188,7 +183,7 @@
             transform: translateY(-50%);
             width: auto;
             height: auto;
-            max-width: 100vw;
+            max-width: 30vw;
             max-height: 90vh;
             object-fit: contain;
             opacity: 0.5;
@@ -202,10 +197,10 @@
                 letter-spacing: 2px;
             }
             .menu-card:first-child {
-                padding-right: 40px;
+                padding-right: 30px;
             }
             .menu-card:last-child {
-                padding-left: 40px;
+                padding-left: 30px;
             }
             .handle-left {
                 width: 330px;
@@ -220,11 +215,11 @@
                 letter-spacing: 3px;
             }
             .left-edge {
-                max-width: 84vw;
+                max-width: 30vw;
                 top: 38%;
             }
             .right-edge {
-                max-width: 84vw;
+                max-width: 30vw;
                 top: 38%;
             }
         }
