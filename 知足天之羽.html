@@ -19,6 +19,44 @@
             color: #dcd5e0;
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
+        }
+
+        .menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 24px;
+            background: rgba(60, 45, 78, 0.7);
+            position: relative;
+        }
+
+        .back-link {
+            position: absolute;
+            left: 24px;
+            color: #dbd2e6;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            border: 1px solid rgba(180, 165, 200, 0.5);
+            padding: 5px 16px;
+            transition: all 0.4s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(180, 165, 200, 0.2);
+        }
+
+        .menu-title {
+            font-size: 1.1rem;
+            font-weight: 350;
+            letter-spacing: 3px;
+            color: #dbd2e6;
+        }
+
+        .menu-body {
+            flex: 1;
+            display: flex;
         }
 
         .institute-card {
@@ -99,19 +137,26 @@
 </head>
 <body>
 
-    <a href="世界心學會.html" class="institute-card xinxuehui">
-        <span class="institute-name">世界心學會</span>
-        <span class="institute-subtitle">引護精神</span>
-    </a>
-
-    <div class="divider-zone">
-        <img class="divider-logo" src="Tusita.png" alt="Tusita">
+    <div class="menu-header">
+        <a href="知足天.html" class="back-link">← 首頁</a>
+        <span class="menu-title">知足天之羽</span>
     </div>
 
-    <a href="世界民生中心.html" class="institute-card minsheng">
-        <span class="institute-name">世界民生中心</span>
-        <span class="institute-subtitle">服務群生</span>
-    </a>
+    <div class="menu-body">
+        <a href="世界心學會.html" class="institute-card xinxuehui">
+            <span class="institute-name">世界心學會</span>
+            <span class="institute-subtitle">引護精神</span>
+        </a>
+
+        <div class="divider-zone">
+            <img class="divider-logo" src="Tusita.png" alt="Tusita">
+        </div>
+
+        <a href="世界民生中心.html" class="institute-card minsheng">
+            <span class="institute-name">世界民生中心</span>
+            <span class="institute-subtitle">服務群生</span>
+        </a>
+    </div>
 
 </body>
 </html>
