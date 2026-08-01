@@ -15,25 +15,47 @@
         }
 
         body {
-            background-color: #584267;
-            color: #dcd5e0;
+            background-color: #f0ead8;
+            color: #584267;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        .menu-header {
+        .site-header {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 18px 24px;
-            background: rgba(60, 45, 78, 0.7);
+            padding: 18px 24px 12px;
+            background: linear-gradient(
+                to bottom,
+                #4a3558 0%,
+                #584267 60%,
+                #665078 100%
+            );
+            flex-direction: column;
             position: relative;
+        }
+
+        .header-logo {
+            width: 56px;
+            height: 56px;
+            filter: invert(1) brightness(2);
+            object-fit: contain;
+            margin-bottom: 6px;
+        }
+
+        .header-title {
+            font-size: 1rem;
+            font-weight: 350;
+            letter-spacing: 4px;
+            color: #dbd2e6;
         }
 
         .back-link {
             position: absolute;
             left: 24px;
+            top: 22px;
             color: #dbd2e6;
             text-decoration: none;
             font-size: 0.85rem;
@@ -50,6 +72,7 @@
         .home-link {
             position: absolute;
             right: 24px;
+            top: 22px;
             color: #dbd2e6;
             text-decoration: none;
             font-size: 0.85rem;
@@ -61,13 +84,6 @@
 
         .home-link:hover {
             background: rgba(180, 165, 200, 0.2);
-        }
-
-        .menu-title {
-            font-size: 1.1rem;
-            font-weight: 350;
-            letter-spacing: 3px;
-            color: #dbd2e6;
         }
 
         .menu-body {
@@ -92,7 +108,6 @@
             opacity: 0.05;
             pointer-events: none;
             z-index: 0;
-            filter: invert(1) brightness(2);
         }
 
         .menu-card {
@@ -107,14 +122,14 @@
             cursor: pointer;
             transition: background 0.5s ease;
             text-decoration: none;
-            color: #e0d8ec;
+            color: #584267;
             font-size: 1.3rem;
             letter-spacing: 3px;
-            background: rgba(145, 130, 165, 0.35);
+            background: rgba(88, 66, 103, 0.02);
         }
 
         .menu-card:hover {
-            background: rgba(155, 140, 175, 0.45);
+            background: rgba(88, 66, 103, 0.08);
         }
 
         @media (max-width: 768px) {
@@ -125,19 +140,28 @@
                 width: 70vw;
                 height: 70vw;
             }
+            .header-logo {
+                width: 44px;
+                height: 44px;
+            }
+            .header-title {
+                font-size: 0.9rem;
+                letter-spacing: 3px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="menu-header">
+    <div class="site-header">
         <a href="知足天之羽.html" class="back-link">← 返回</a>
-        <span class="menu-title">世界民生中心</span>
+        <img class="header-logo" src="Tusita.png" alt="Tusita">
+        <span class="header-title">世界民生中心</span>
         <a href="知足天.html" class="home-link">首頁</a>
     </div>
 
     <div class="menu-body">
-        <img class="bg-logo" src="Tusita.png" alt="Tusita">
+        <img class="bg-logo" src="Tusita-purple.png" alt="Tusita">
         <a href="大同世界建造指南.html" class="menu-card">大同世界建造指南</a>
     </div>
 
