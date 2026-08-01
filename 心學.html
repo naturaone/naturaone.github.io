@@ -104,6 +104,8 @@
             margin: 0 auto;
             padding: 20px 24px 50px;
             text-align: left;
+            position: relative;
+            z-index: 1;
         }
 
         .article-content p {
@@ -118,6 +120,8 @@
             text-align: center;
             margin-top: 30px;
             margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
         }
 
         .work-info p {
@@ -135,6 +139,8 @@
             border: 1px solid rgba(88, 66, 103, 0.2);
             text-align: center;
             max-width: 320px;
+            position: relative;
+            z-index: 1;
         }
 
         .license-title {
@@ -159,6 +165,8 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            position: relative;
+            z-index: 1;
         }
 
         .agree-section input[type="checkbox"] {
@@ -190,6 +198,8 @@
             transition: all 0.5s ease;
             opacity: 0.4;
             pointer-events: none;
+            position: relative;
+            z-index: 1;
         }
 
         .download-btn.active {
@@ -204,11 +214,15 @@
 
         .download-section {
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .back-section {
             text-align: center;
             padding: 10px 20px 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .back-link {
@@ -227,7 +241,7 @@
         }
 
         .block-four {
-            padding: 16px 20px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -304,7 +318,7 @@
 
     <header class="site-header">
         <a href="世界心學會.html" class="header-back">← 返回</a>
-        <img class="header-logo" src="Tusita.png" alt="Tusita">
+        <img class="header-logo" src="tusita.png" alt="Tusita">
         <a href="知足天.html" class="header-home">首頁</a>
     </header>
 
@@ -356,6 +370,8 @@
     <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
         <span></span>
     </div>
+
+    <img src="文章背景.png" alt="" style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 60vw; max-width: 400px; object-fit: contain; opacity: 0.05; pointer-events: none; z-index: 0;">
 
     <script>
         fetch('心學-article.txt')
