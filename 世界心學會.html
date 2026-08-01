@@ -20,6 +20,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .site-header {
@@ -89,6 +90,7 @@
         .menu-body {
             flex: 1;
             display: flex;
+            position: relative;
         }
 
         .menu-card {
@@ -103,6 +105,7 @@
             color: #584267;
             font-size: 1.3rem;
             letter-spacing: 3px;
+            position: relative;
         }
 
         .menu-card:first-child {
@@ -119,32 +122,80 @@
             background: rgba(88, 66, 103, 0.08);
         }
 
+        .card-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .handle-left {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            opacity: 0.55;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .menu-card:first-child .handle-left {
+            right: -10px;
+        }
+
+        .menu-card:last-child .handle-left {
+            left: -10px;
+        }
+
         .divider-zone {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             width: 1px;
             background: rgba(88, 66, 103, 0.2);
             position: relative;
+            z-index: 1;
         }
 
-        .divider-logo {
-            width: 36px;
-            height: 36px;
+        .left-edge {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: auto;
+            height: 100%;
+            max-width: 18vw;
             object-fit: contain;
-            opacity: 0.4;
+            opacity: 0.5;
             z-index: 1;
+            pointer-events: none;
+        }
+
+        .right-edge {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: auto;
+            height: 100%;
+            max-width: 18vw;
+            object-fit: contain;
+            opacity: 0.5;
+            z-index: 1;
+            pointer-events: none;
         }
 
         @media (max-width: 768px) {
             .menu-card {
-                font-size: 0.9rem;
-                letter-spacing: 1.5px;
+                font-size: 1rem;
+                letter-spacing: 2px;
             }
-            .divider-logo {
-                width: 24px;
-                height: 24px;
+            .handle-left {
+                width: 55px;
+                height: 55px;
+            }
+            .menu-card:first-child .handle-left {
+                right: -5px;
+            }
+            .menu-card:last-child .handle-left {
+                left: -5px;
             }
             .header-logo {
                 width: 44px;
@@ -153,6 +204,12 @@
             .header-title {
                 font-size: 0.9rem;
                 letter-spacing: 3px;
+            }
+            .left-edge {
+                max-width: 14vw;
+            }
+            .right-edge {
+                max-width: 14vw;
             }
         }
     </style>
@@ -167,13 +224,23 @@
     </div>
 
     <div class="menu-body">
-        <a href="知足天律.html" class="menu-card">知足天律</a>
 
-        <div class="divider-zone">
-            <img class="divider-logo" src="Tusita-purple.png" alt="Tusita">
-        </div>
+        <img class="left-edge" src="左門邊.png" alt="">
 
-        <a href="心學.html" class="menu-card">心學</a>
+        <a href="知足天律.html" class="menu-card">
+            <img class="handle-left" src="把手.png" alt="">
+            <span class="card-text">知足天律</span>
+        </a>
+
+        <div class="divider-zone"></div>
+
+        <a href="心學.html" class="menu-card">
+            <img class="handle-left" src="把手.png" alt="">
+            <span class="card-text">心學</span>
+        </a>
+
+        <img class="right-edge" src="右門邊.png" alt="">
+
     </div>
 
 </body>
