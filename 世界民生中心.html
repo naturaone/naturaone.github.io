@@ -132,13 +132,28 @@
             background: rgba(88, 66, 103, 0.08);
         }
 
+        /* === 文字改為絕對定位，與把手完全一致 === */
         .card-text {
-            position: relative;
-            z-index: 1;
-            /* === 豎排文字 === */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
             writing-mode: vertical-rl;
             letter-spacing: 6px;
             font-size: 1.4rem;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        /* 左卡片文字偏移，與把手偏移一致 */
+        .menu-card:first-child .card-text {
+            left: calc(50% + 90px);
+        }
+
+        /* 右卡片文字偏移，與把手偏移一致 */
+        .menu-card:last-child .card-text {
+            left: calc(50% - 90px);
         }
 
         /* === 把手完全按照原始設定 === */
@@ -243,6 +258,12 @@
             .menu-card:last-child .handle-left {
                 left: calc(50% - 40px);
             }
+            .menu-card:first-child .card-text {
+                left: calc(50% + 40px);
+            }
+            .menu-card:last-child .card-text {
+                left: calc(50% - 40px);
+            }
             .handle-left {
                 width: 330px;
                 height: 330px;
@@ -293,17 +314,13 @@
         <!-- 第一行 -->
         <div class="menu-row">
             <a href="民生中心.html" class="menu-card">
-                <span class="card-text">
-                    <img class="handle-left" src="把手.png" alt="">
-                    民生中心
-                </span>
+                <img class="handle-left" src="把手.png" alt="">
+                <span class="card-text">民生中心</span>
             </a>
             <div class="divider-zone"></div>
             <a href="統寶.html" class="menu-card">
-                <span class="card-text">
-                    <img class="handle-left" src="把手.png" alt="">
-                    統寶
-                </span>
+                <img class="handle-left" src="把手.png" alt="">
+                <span class="card-text">統寶</span>
             </a>
         </div>
 
@@ -312,17 +329,13 @@
         <!-- 第二行 -->
         <div class="menu-row">
             <a href="心學院.html" class="menu-card">
-                <span class="card-text">
-                    <img class="handle-left" src="把手.png" alt="">
-                    心學院
-                </span>
+                <img class="handle-left" src="把手.png" alt="">
+                <span class="card-text">心學院</span>
             </a>
             <div class="divider-zone"></div>
             <a href="自然律.html" class="menu-card">
-                <span class="card-text">
-                    <img class="handle-left" src="把手.png" alt="">
-                    自然律
-                </span>
+                <img class="handle-left" src="把手.png" alt="">
+                <span class="card-text">自然律</span>
             </a>
         </div>
 
