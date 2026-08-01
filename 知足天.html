@@ -22,6 +22,24 @@
             flex-direction: column;
         }
 
+        /* ===== Header ===== */
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 24px;
+            background: #f0ead8;
+        }
+
+        .header-logo {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+            opacity: 0.85;
+            filter: brightness(0) saturate(100%) invert(28%) sepia(13%) saturate(1200%) hue-rotate(245deg) brightness(40%) saturate(40%);
+        }
+
+        /* ===== 宣言區 ===== */
         .block-manifesto {
             flex: 3;
             display: flex;
@@ -31,16 +49,6 @@
             text-align: center;
             padding: 20px 20px;
             background: #f0ead8;
-        }
-
-        .manifesto-logo {
-            width: 70px;
-            height: 70px;
-            margin-bottom: 30px;
-            position: relative;
-            top: -70px;
-            object-fit: contain;
-            opacity: 0.85;
         }
 
         .manifesto {
@@ -182,7 +190,6 @@
             font-weight: 300;
         }
 
-        /* 手機端專用 */
         .mobile-institutes-row {
             display: none;
             width: 100%;
@@ -232,7 +239,6 @@
         }
 
         @media (max-width: 768px) {
-            /* 隱藏桌面版機構區 */
             .block-institutes {
                 display: none;
             }
@@ -240,7 +246,6 @@
                 display: none;
             }
 
-            /* 顯示手機版機構區 */
             .mobile-institutes-row {
                 display: flex;
             }
@@ -260,11 +265,9 @@
             .institute-name {
                 font-size: 1.1rem;
             }
-            .manifesto-logo {
-                width: 55px;
-                height: 55px;
-                margin-bottom: 24px;
-                top: -55px;
+            .header-logo {
+                width: 65px;
+                height: 65px;
             }
         }
 
@@ -278,8 +281,11 @@
 </head>
 <body>
 
+    <header class="site-header">
+        <img class="header-logo" src="Tusita.png" alt="Tusita">
+    </header>
+
     <section class="block-manifesto">
-        <img class="manifesto-logo" src="Tusita.png" alt="Tusita">
         <p class="manifesto">
             這是一個沒有國別的世界<br>
             不分種族、貴賤、高低、信仰、貧富、性別等一切殊相<br>
@@ -290,7 +296,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- 桌面版機構 -->
     <section class="block-institutes" id="desktopInstitutes">
         <div class="institute-card xinxuehui"
              onmouseenter="showSubmenu('xin')"
@@ -306,7 +311,6 @@
         </div>
     </section>
 
-    <!-- 桌面版子選單 -->
     <div class="submenu-wrapper"
          onmouseenter="cancelHideTimer()"
          onmouseleave="startHideTimer()">
@@ -321,7 +325,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- 手機版機構 -->
     <div class="mobile-institutes-row">
         <div class="institute-card xinxuehui"
              onclick="toggleMobileSub('mobileSubXin')">
@@ -335,7 +338,6 @@
         </div>
     </div>
 
-    <!-- 手機版子選單 -->
     <div class="mobile-institute-wrapper">
         <div class="mobile-submenu" id="mobileSubXin">
             <a href="知足天律.html">知足天律</a>
