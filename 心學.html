@@ -252,8 +252,6 @@
                 #584267 60%,
                 #4a3558 100%
             );
-            position: relative;
-            z-index: 1;
         }
 
         .copyright {
@@ -261,19 +259,6 @@
             letter-spacing: 1px;
             color: #c5bbd4;
             font-weight: 300;
-        }
-
-        .fixed-bg-logo {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60vw;
-            max-width: 400px;
-            object-fit: contain;
-            opacity: 0.05;
-            pointer-events: none;
-            z-index: 0;
         }
 
         .back-to-top {
@@ -382,11 +367,11 @@
         <p class="copyright">© 2023-2026 白頭翁</p>
     </footer>
 
-    <img class="fixed-bg-logo" src="文章背景.png" alt="">
-
     <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
         <span></span>
     </div>
+
+    <img src="文章背景.png" alt="" style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 60vw; max-width: 400px; object-fit: contain; opacity: 0.05; pointer-events: none; z-index: 0;">
 
     <script>
         fetch('心學-article.txt')
