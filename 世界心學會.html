@@ -107,6 +107,8 @@
 
         .menu-card:first-child {
             background: rgba(88, 66, 103, 0.04);
+            /* 控制左邊內容往中間靠 */
+            padding-left: 60%;
         }
         .menu-card:first-child:hover {
             background: rgba(88, 66, 103, 0.1);
@@ -114,54 +116,44 @@
 
         .menu-card:last-child {
             background: rgba(88, 66, 103, 0.02);
+            /* 控制右邊內容往中間靠 */
+            padding-right: 60%;
         }
         .menu-card:last-child:hover {
             background: rgba(88, 66, 103, 0.08);
         }
 
-        /* === 把手和文字的定位容器 === */
+        /* 把手和文字用 flex 垂直排列 */
+        .card-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
         .card-text {
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
             writing-mode: vertical-rl;
             letter-spacing: 6px;
             font-size: 1.4rem;
-            pointer-events: none;
+            z-index: 2;
             white-space: nowrap;
-        }
-
-        /* 左邊文字：往中間拉 */
-        .menu-card:first-child .card-text {
-            left: 70%;
-        }
-
-        /* 右邊文字：往中間拉 */
-        .menu-card:last-child .card-text {
-            left: 30%;
+            order: 2;
         }
 
         .handle-left {
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
             width: 540px;
             height: 540px;
             object-fit: contain;
             opacity: 0.55;
             pointer-events: none;
             z-index: 0;
-        }
-
-        /* 左邊把手：跟文字同步 */
-        .menu-card:first-child .handle-left {
-            left: 70%;
-        }
-
-        /* 右邊把手：跟文字同步 */
-        .menu-card:last-child .handle-left {
-            left: 30%;
+            /* 讓把手疊在文字上 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .divider-zone {
@@ -223,17 +215,11 @@
                 font-size: 1rem;
                 letter-spacing: 2px;
             }
-            .menu-card:first-child .handle-left {
-                left: 65%;
+            .menu-card:first-child {
+                padding-left: 50%;
             }
-            .menu-card:last-child .handle-left {
-                left: 35%;
-            }
-            .menu-card:first-child .card-text {
-                left: 65%;
-            }
-            .menu-card:last-child .card-text {
-                left: 35%;
+            .menu-card:last-child {
+                padding-right: 50%;
             }
             .handle-left {
                 width: 330px;
@@ -278,16 +264,22 @@
 
         <img class="left-edge" src="左門邊.png" alt="">
 
+        <!-- 左邊：心學 -->
         <a href="心學.html" class="menu-card">
-            <img class="handle-left" src="把手.png" alt="">
-            <span class="card-text">心學</span>
+            <div class="card-group">
+                <span class="card-text">心學</span>
+                <img class="handle-left" src="把手.png" alt="">
+            </div>
         </a>
 
         <div class="divider-zone"></div>
 
+        <!-- 右邊：知足天律 -->
         <a href="知足天律.html" class="menu-card">
-            <img class="handle-left" src="把手.png" alt="">
-            <span class="card-text">知足天律</span>
+            <div class="card-group">
+                <span class="card-text">知足天律</span>
+                <img class="handle-left" src="把手.png" alt="">
+            </div>
         </a>
 
         <img class="right-edge" src="右門邊.png" alt="">
