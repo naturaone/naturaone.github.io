@@ -252,6 +252,8 @@
                 #584267 60%,
                 #4a3558 100%
             );
+            position: relative;
+            z-index: 1;
         }
 
         .copyright {
@@ -259,6 +261,20 @@
             letter-spacing: 1px;
             color: #c5bbd4;
             font-weight: 300;
+        }
+
+        /* 背景 logo：固定在頁面底部，在內容之下、版權條之上 */
+        .fixed-bg-logo {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60vw;
+            max-width: 400px;
+            object-fit: contain;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .back-to-top {
@@ -371,7 +387,8 @@
         <span></span>
     </div>
 
-    <img src="文章背景.png" alt="" style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 60vw; max-width: 400px; object-fit: contain; opacity: 0.05; pointer-events: none; z-index: 0;">
+    <!-- 背景 logo：固定在底部，z-index: 0 確保在版權條之下 -->
+    <img class="fixed-bg-logo" src="文章背景.png" alt="">
 
     <script>
         fetch('心學-article.txt')
