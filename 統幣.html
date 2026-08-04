@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>統寶 · 世界民生中心</title>
+    <title>統幣 · 世界民生中心</title>
     <style>
         * {
             margin: 0;
@@ -221,7 +221,7 @@
     </header>
 
     <div class="page-header">
-        <h1>統寶</h1>
+        <h1>統幣</h1>
         <div class="divider"></div>
     </div>
 
@@ -235,7 +235,7 @@
     </div>
 
     <footer class="block-four">
-        <p class="copyright">© 2023-2026 白頭翁</p>
+        <p class="copyright">© 2023-2026 白頭翁 · <a href="license.html" style="color: #c5bbd4; text-decoration: none;">授權條款</a></p>
     </footer>
 
     <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
@@ -245,7 +245,7 @@
     <img src="文章背景.png" alt="" style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 60vw; max-width: 400px; object-fit: contain; opacity: 0.05; pointer-events: none; z-index: 0;">
 
     <script>
-        fetch('統寶.txt')
+        fetch('統幣.txt')
             .then(response => {
                 if (!response.ok) throw new Error('文章載入失敗');
                 return response.text();
