@@ -1,6 +1,6 @@
 Tusita, a heaven on earth. This is the Tusita blueprint, which depicts the whole Tusita system.
 
-If this blueprint resonates with you, you are welcome to join to bring it to life. Please go to the technical realization repository(https://github.com/naturaone/Deus-Fabrica).
+If this blueprint resonates with you, you are welcome to join to bring it to life. Please go to the technical realization repository(https://github.com/naturaone/tusita-implementation).
 
 ##  License
 
